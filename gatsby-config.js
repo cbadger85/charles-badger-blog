@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: 'Charles Badger',
+    description: `A development blog where I talk about stuff I'm learning`,
+    author: '@cbadger85',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -30,5 +30,33 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog',
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      extendsions: ['.mdx', '.md'],
+      gatsbyRemarkPlugins: [
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            maxWidth: 500,
+          },
+        },
+        {
+          resolve: 'gatsby-remark-responsive-iframe',
+          options: {
+            wrapperStype: 'margin-bottom: 1.0725rem',
+          },
+        },
+        `gatsby-remark-prismjs`,
+        `gatsby-remark-smartypants`,
+      ],
+    },
+    'gatsby-plugin-feed-mdx',
   ],
-}
+};
