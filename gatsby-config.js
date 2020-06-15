@@ -5,6 +5,42 @@ module.exports = {
     author: '@cbadger85',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog',
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-smartypants`,
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 500,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: {
+              wrapperStype: 'margin-bottom: 1.0725rem',
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,33 +66,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blog',
-        path: `${__dirname}/content/blog`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      extendsions: ['.mdx', '.md'],
-      gatsbyRemarkPlugins: [
-        {
-          resolve: 'gatsby-remark-images',
-          options: {
-            maxWidth: 500,
-          },
-        },
-        {
-          resolve: 'gatsby-remark-responsive-iframe',
-          options: {
-            wrapperStype: 'margin-bottom: 1.0725rem',
-          },
-        },
-        `gatsby-remark-prismjs`,
-        `gatsby-remark-smartypants`,
-      ],
-    },
     'gatsby-plugin-feed-mdx',
   ],
 };
