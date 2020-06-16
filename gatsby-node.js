@@ -6,6 +6,17 @@ const POSTS_PER_PAGE = 1;
 const range = (size, startsAt = 0) =>
   [...Array(size).keys()].map(i => i + startsAt);
 
+const groupPostsByCategory = posts =>
+  posts.reduce((map, post) => {
+    post.node.fields.tags.forEach(tag => {
+      if (!map[tag]) {
+        map[tag] = [];
+      }
+      map[tag].push(post);
+    });
+    return map;
+  }, {});
+
 const createPosts = (createPage, posts) => {
   const blogPostTemplate = path.resolve('src/templates/blog-post.tsx');
 
@@ -51,6 +62,28 @@ const createBlogList = (createPage, posts) => {
   });
 };
 
+const createTagListPages = (createPage, posts) => {
+  const BlogListTemplate = path.resolve('src/templates/tags-list.tsx');
+
+  Object.entries(groupPostsByCategory(posts)).forEach(([tag, tagPosts]) => {
+    const numPages = Math.ceil(tagPosts.length / POSTS_PER_PAGE);
+
+    tagPosts.forEach((post, i) => {
+      createPage({
+        path: `/blog/tags/${tag}/${i + 1}`,
+        component: BlogListTemplate, // todo change this
+        context: {
+          limit: POSTS_PER_PAGE,
+          skip: i * POSTS_PER_PAGE,
+          numPages,
+          currentPage: i + 1,
+          tag,
+        },
+      });
+    });
+  });
+};
+
 exports.createPages = ({ graphql, actions }) =>
   graphql(`
     query {
@@ -59,6 +92,7 @@ exports.createPages = ({ graphql, actions }) =>
           node {
             fields {
               slug
+              tags
             }
             frontmatter {
               title
@@ -78,6 +112,7 @@ exports.createPages = ({ graphql, actions }) =>
 
     createPosts(createPage, edges);
     createBlogList(createPage, edges);
+    createTagListPages(createPage, edges);
   });
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
