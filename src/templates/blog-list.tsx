@@ -5,9 +5,17 @@ import Image from '../components/image';
 import SEO from '../components/seo';
 import { BlogFrontmatter } from '../types/BlogFrontmatter';
 
-const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
-  const allFrontmatter = data.allMdx.edges.map(edge => edge.node.frontmatter);
+const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
+  data,
+  pathContext,
+}) => {
   const posts = data.allMdx.edges;
+  const prev =
+    pathContext.currentPage === 1 ? null : pathContext.currentPage - 1;
+  const next =
+    pathContext.currentPage === pathContext.numPages
+      ? null
+      : pathContext.currentPage + 1;
 
   return (
     <Layout>
@@ -20,7 +28,9 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
       </div>
       {posts.map(({ node }) => (
         <div key={node.fields.slug}>
-          <Link to={`blog/${node.fields.slug}`}>{node.frontmatter.title}</Link>
+          <Link to={`/blog/posts${node.fields.slug}`}>
+            {node.frontmatter.title}
+          </Link>
           &nbsp;
           <small>
             {' '}
@@ -28,6 +38,28 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
           </small>
           <p>{node.frontmatter.excerpt}</p>
           <br />
+          <p>
+            {prev && (
+              <Link to={`/blog/${prev}`}>
+                {prev}{' '}
+                <span role="img" aria-label="point-left">
+                  👈{' '}
+                </span>
+                Previous
+              </Link>
+            )}
+          </p>
+          <p>
+            {next && (
+              <Link to={`/blog/${next}`}>
+                {next}{' '}
+                <span role="img" aria-label="point-left">
+                  👉{' '}
+                </span>
+                Next
+              </Link>
+            )}
+          </p>
         </div>
       ))}
     </Layout>
@@ -37,13 +69,17 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
 export default IndexPage;
 
 export const query = graphql`
-  query HomePageQuery {
+  query HomePageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+    allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      limit: $limit
+      skip: $skip
+    ) {
       totalCount
       edges {
         node {
@@ -67,5 +103,11 @@ interface IndexPageProps<T> {
     allMdx: {
       edges: { node: { fields: { slug: string }; frontmatter: T } }[];
     };
+  };
+  pathContext: {
+    currentPage: number;
+    limit: number;
+    numPages: number;
+    skip: number;
   };
 }

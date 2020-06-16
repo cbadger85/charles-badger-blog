@@ -20,7 +20,7 @@ const Template: React.FC<PageData<
       <MDXRenderer>{body}</MDXRenderer>
       <p>
         {prev && (
-          <Link to={`/blog${prev.fields.slug}`}>
+          <Link to={`/blog/posts${prev.fields.slug}`}>
             {prev.frontmatter.title}{' '}
             <span role="img" aria-label="point-left">
               👈{' '}
@@ -31,7 +31,7 @@ const Template: React.FC<PageData<
       </p>
       <p>
         {next && (
-          <Link to={`/blog${next.fields.slug}`}>
+          <Link to={`/blog/posts${next.fields.slug}`}>
             {next.frontmatter.title}{' '}
             <span role="img" aria-label="point-left">
               👉{' '}
