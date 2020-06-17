@@ -3,13 +3,20 @@ import { graphql, Link } from 'gatsby';
 import { BlogFrontmatter } from '../types/BlogFrontmatter';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-const Template: React.FC<PageData<
-  BlogFrontmatter,
-  BlogPathContext<BlogFrontmatter>
->> = ({ data, pathContext }) => {
+const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
+  data,
+  pathContext,
+}) => {
   const { title, date } = data.mdx.frontmatter;
   const body = data.mdx.body;
-  const { next, prev } = pathContext;
+  const {
+    nextPostLink,
+    nextPostTitle,
+    prevPostLink,
+    prevPostTitle,
+  } = pathContext;
+
+  console.log(pathContext);
 
   return (
     <div>
@@ -19,9 +26,9 @@ const Template: React.FC<PageData<
       </div>
       <MDXRenderer>{body}</MDXRenderer>
       <p>
-        {prev && (
-          <Link to={`/blog/posts${prev.fields.slug}`}>
-            {prev.frontmatter.title}{' '}
+        {prevPostLink && prevPostTitle && (
+          <Link to={prevPostLink}>
+            {prevPostTitle}{' '}
             <span role="img" aria-label="point-left">
               👈{' '}
             </span>
@@ -30,9 +37,9 @@ const Template: React.FC<PageData<
         )}
       </p>
       <p>
-        {next && (
-          <Link to={`/blog/posts${next.fields.slug}`}>
-            {next.frontmatter.title}{' '}
+        {nextPostLink && nextPostTitle && (
+          <Link to={nextPostLink}>
+            {nextPostTitle}{' '}
             <span role="img" aria-label="point-left">
               👉{' '}
             </span>
@@ -69,9 +76,11 @@ interface PageData<T, U> {
   pathContext: U;
 }
 
-interface BlogPathContext<T> {
-  prev?: { fields: { slug: string }; frontmatter: T };
-  next?: { fields: { slug: string }; frontmatter: T };
+interface BlogPathContext {
+  prevPostLink?: string;
+  prevPostTitle?: string;
+  nextPostLink?: string;
+  nextPostTitle?: string;
 }
 
 export default Template;

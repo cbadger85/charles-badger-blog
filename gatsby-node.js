@@ -20,14 +20,22 @@ const groupPostsByCategory = posts =>
 const createPosts = (createPage, posts) => {
   const blogPostTemplate = path.resolve('src/templates/blog-post.tsx');
 
+  const postPath = 'blog/posts';
+
   posts.forEach(({ node }, i) => {
     createPage({
-      path: `blog/posts${node.fields.slug}`,
+      path: postPath + node.fields.slug,
       component: blogPostTemplate,
       context: {
         slug: node.fields.slug,
-        prev: i === 0 ? null : posts[i - 1].node,
-        next: i === posts.length - 1 ? null : posts[i + 1].node,
+        prevPostLink: i === 0 ? null : postPath + posts[i - 1].node.fields.slug,
+        prevPostTitle: i === 0 ? null : posts[i - 1].node.fields.title,
+        nextPostLink:
+          i === posts.length - 1
+            ? null
+            : postPath + posts[i + 1].node.fields.slug,
+        nextPostTitle:
+          i === posts.length - 1 ? null : posts[i + 1].node.fields.title,
       },
     });
   });
@@ -91,6 +99,7 @@ exports.createPages = ({ graphql, actions }) =>
         edges {
           node {
             fields {
+              title
               slug
               tags
             }
@@ -131,6 +140,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: 'tags',
       node,
       value: node.frontmatter.tags,
+    });
+
+    createNodeField({
+      name: 'title',
+      node,
+      value: node.frontmatter.title,
     });
   }
 };
