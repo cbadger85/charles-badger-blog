@@ -5,5 +5,5 @@
  */
 
 // You can delete this file if you're not using it
-
-require('prism-themes/themes/prism-synthwave84.css');
+import './language-tabs.css';
+export * from './wrap-root-element';

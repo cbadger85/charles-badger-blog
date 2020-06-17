@@ -15,6 +15,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        default: require.resolve('./src/components/layout.tsx'),
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           `gatsby-remark-smartypants`,
@@ -28,14 +29,6 @@ module.exports = {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {
               wrapperStype: 'margin-bottom: 1.0725rem',
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
             },
           },
         ],
