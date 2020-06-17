@@ -16,8 +16,6 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
     prevPostTitle,
   } = pathContext;
 
-  console.log(pathContext);
-
   return (
     <div>
       <h1>{title}</h1>

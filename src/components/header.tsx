@@ -21,8 +21,6 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
 
   const tagList = pluckTags(data.allMdx.edges);
 
-  console.log(tagList);
-
   return (
     <header
       style={{

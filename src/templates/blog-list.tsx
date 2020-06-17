@@ -10,12 +10,8 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   pathContext,
 }) => {
   const posts = data.allMdx.edges;
-  const prev =
-    pathContext.currentPage === 1 ? null : pathContext.currentPage - 1;
-  const next =
-    pathContext.currentPage === pathContext.numPages
-      ? null
-      : pathContext.currentPage + 1;
+
+  const { nextPageLink, prevPageLink } = pathContext;
 
   return (
     <Layout>
@@ -38,28 +34,26 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
           </small>
           <p>{node.frontmatter.excerpt}</p>
           <br />
-          <p>
-            {prev && (
-              <Link to={`/blog/${prev}`}>
-                {prev}{' '}
+          {prevPageLink && (
+            <p>
+              <Link to={prevPageLink}>
                 <span role="img" aria-label="point-left">
-                  👈{' '}
+                  👈 Prev Page
                 </span>
                 Previous
               </Link>
-            )}
-          </p>
-          <p>
-            {next && (
-              <Link to={`/blog/${next}`}>
-                {next}{' '}
+            </p>
+          )}
+          {nextPageLink && (
+            <p>
+              <Link to={nextPageLink}>
                 <span role="img" aria-label="point-left">
-                  👉{' '}
+                  Next Page 👉
                 </span>
                 Next
               </Link>
-            )}
-          </p>
+            </p>
+          )}
         </div>
       ))}
     </Layout>
@@ -109,5 +103,7 @@ interface IndexPageProps<T> {
     limit: number;
     numPages: number;
     skip: number;
+    nextPageLink?: string;
+    prevPageLink?: string;
   };
 }
