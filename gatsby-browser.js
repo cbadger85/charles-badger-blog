@@ -6,4 +6,4 @@
 
 // You can delete this file if you're not using it
 import './language-tabs.css';
-export * from './wrap-root-element';
+export * from './gatsby/wrap-root-element';

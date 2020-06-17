@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import CodeBlock from './src/components/code-block';
+import CodeBlock from '../src/components/code-block';
 
 const preToCodeBlock = preProps => {
   if (preProps.children?.props?.mdxType === 'code') {
