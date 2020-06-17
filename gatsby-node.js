@@ -79,6 +79,7 @@ const createTagListPages = (createPage, posts) => {
 
   Object.entries(groupPostsByCategory(posts)).forEach(([tag, tagPosts]) => {
     const numPages = Math.ceil(tagPosts.length / POSTS_PER_PAGE);
+    const uri = `/blog/tags/${tag}`;
 
     tagPosts.forEach((post, i) => {
       createPage({
@@ -90,6 +91,8 @@ const createTagListPages = (createPage, posts) => {
           numPages,
           currentPage: i + 1,
           tag,
+          nextPageLink: i === numPages - 1 ? null : `${uri}/${i + 2}`,
+          prevPageLink: i === 0 ? null : `${uri}/${i}`,
         },
       });
     });
