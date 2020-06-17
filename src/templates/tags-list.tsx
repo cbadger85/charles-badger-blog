@@ -10,13 +10,7 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   pathContext,
 }) => {
   const posts = data.allMdx.edges;
-  const prev =
-    pathContext.currentPage === 1 ? null : pathContext.currentPage - 1;
-  const next =
-    pathContext.currentPage === pathContext.numPages
-      ? null
-      : pathContext.currentPage + 1;
-  const { tag } = pathContext;
+  const { tag, nextPageLink, prevPageLink } = pathContext;
 
   return (
     <Layout>
@@ -39,28 +33,26 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
           </small>
           <p>{node.frontmatter.excerpt}</p>
           <br />
-          <p>
-            {prev && (
-              <Link to={`/blog/tags/${tag}/${prev}`}>
-                {prev}{' '}
+          {prevPageLink && (
+            <p>
+              <Link to={prevPageLink}>
                 <span role="img" aria-label="point-left">
-                  👈{' '}
+                  👈 Previous Page
                 </span>
                 Previous
               </Link>
-            )}
-          </p>
-          <p>
-            {next && (
-              <Link to={`/blog/tags/${tag}/${next}`}>
-                {next}{' '}
+            </p>
+          )}
+          {nextPageLink && (
+            <p>
+              <Link to={nextPageLink}>
                 <span role="img" aria-label="point-left">
-                  👉{' '}
+                  Next Page 👉
                 </span>
                 Next
               </Link>
-            )}
-          </p>
+            </p>
+          )}
         </div>
       ))}
     </Layout>
@@ -108,9 +100,10 @@ interface PostsByTagPageProps<T> {
   };
   pathContext: {
     currentPage: number;
-    limit: number;
     numPages: number;
     skip: number;
     tag: string;
+    nextPageLink?: string;
+    prevPageLink?: string;
   };
 }
