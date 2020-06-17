@@ -1,1 +1,1 @@
-exports.POSTS_PER_PAGE = 1;
+exports.POSTS_PER_PAGE = 20;

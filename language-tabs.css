@@ -20,6 +20,7 @@
   text-transform: uppercase;
   top: 0;
 }
+
 .gatsby-highlight pre[class~='language-javascript']::before {
   content: 'js';
   background: #f7df1e;
@@ -29,6 +30,27 @@
   content: 'js';
   background: #f7df1e;
   color: black;
+}
+.gatsby-highlight pre[class~='language-jsx']::before {
+  content: 'js';
+  background: #0077d8;
+  color: whitesmoke;
+}
+
+.gatsby-highlight pre[class~='language-typescript']::before {
+  content: 'ts';
+  background: #0077d8;
+  color: whitesmoke;
+}
+.gatsby-highlight pre[class~='language-ts']::before {
+  content: 'ts';
+  background: #0077d8;
+  color: whitesmoke;
+}
+.gatsby-highlight pre[class~='language-tsx']::before {
+  content: 'tsx';
+  background: #0077d8;
+  color: whitesmoke;
 }
 
 .gatsby-highlight pre[class~='language-html']::before {
