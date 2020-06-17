@@ -103,6 +103,7 @@ interface PostsByTagPageProps<T> {
     numPages: number;
     skip: number;
     tag: string;
+    tagSlug: string;
     nextPageLink?: string;
     prevPageLink?: string;
   };

@@ -1,5 +1,6 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const slugify = require('slugify');
 
 const POSTS_PER_PAGE = 1;
 
@@ -79,11 +80,12 @@ const createTagListPages = (createPage, posts) => {
 
   Object.entries(groupPostsByCategory(posts)).forEach(([tag, tagPosts]) => {
     const numPages = Math.ceil(tagPosts.length / POSTS_PER_PAGE);
-    const uri = `/blog/tags/${tag}`;
+    const tagSlug = slugify(tag);
+    const uri = `/blog/tags/${tagSlug}`;
 
     tagPosts.forEach((post, i) => {
       createPage({
-        path: `/blog/tags/${tag}/${i + 1}`,
+        path: `/blog/tags/${tagSlug}/${i + 1}`,
         component: BlogListTemplate,
         context: {
           limit: POSTS_PER_PAGE,
@@ -91,6 +93,7 @@ const createTagListPages = (createPage, posts) => {
           numPages,
           currentPage: i + 1,
           tag,
+          tagSlug,
           nextPageLink: i === numPages - 1 ? null : `${uri}/${i + 2}`,
           prevPageLink: i === 0 ? null : `${uri}/${i}`,
         },
