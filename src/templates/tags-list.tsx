@@ -10,7 +10,7 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   pathContext,
 }) => {
   const posts = data.allMdx.edges;
-  const { tag, nextPageLink, prevPageLink } = pathContext;
+  const { nextPageLink, prevPageLink } = pathContext;
 
   return (
     <Layout>
