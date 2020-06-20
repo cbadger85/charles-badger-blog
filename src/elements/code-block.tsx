@@ -1,6 +1,7 @@
 import React from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
+import styles from './code-block.module.scss';
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => {
   const language = className.replace(/language-/, '') as Language;
@@ -13,7 +14,10 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="gatsby-highlight" data-language={language}>
+        <div
+          className={`${styles.codeBlock} ${styles.gatsbyHighlight}`}
+          data-language={language}
+        >
           <pre className={className} style={{ ...style, padding: '20px' }}>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>

@@ -1,0 +1,53 @@
+.typography {
+  font-weight: normal;
+  margin: 0;
+  text-decoration: none;
+
+  line-height: 1.4;
+  font-family: 'Nunito', sans-serif;
+}
+
+.xl {
+  font-size: 2rem;
+}
+
+.l {
+  font-size: 1.7rem;
+}
+
+.m {
+  font-size: 1.3rem;
+}
+
+.s {
+  font-size: 1rem;
+}
+
+.xs {
+  font-size: 0.8rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.underlineStrikethrough {
+  text-decoration: underline line-through;
+}
+
+.heading {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}

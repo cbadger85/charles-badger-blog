@@ -1,2 +1,3 @@
-import './language-tabs.css';
-export * from './gatsby/wrap-root-element';
+import './src/styles/index.scss';
+
+export * from './src/components/wrap-root-element';

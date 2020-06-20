@@ -1,1 +1,1 @@
-export * from './gatsby/wrap-root-element';
+export * from './src/components/wrap-root-element';

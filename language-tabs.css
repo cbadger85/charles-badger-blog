@@ -32,8 +32,8 @@
   color: black;
 }
 .gatsby-highlight pre[class~='language-jsx']::before {
-  content: 'js';
-  background: #0077d8;
+  content: 'jsx';
+  background: #f7df1e;
   color: whitesmoke;
 }
 

@@ -1,0 +1,83 @@
+.codeBlock {
+  pre {
+    font-family: monospace, monospace;
+    font-size: 0.9em;
+    line-height: 1.42;
+    margin: 1.45rem 0;
+    overflow: auto;
+    word-wrap: normal;
+  }
+}
+
+.gatsbyHighlight {
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+
+  pre[class*='language-'] {
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 0.75rem;
+    border-radius: 0.25rem;
+  }
+
+  pre[class*='language-']::before {
+    background: black;
+    border-radius: 0 0 0.25rem 0.25rem;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    position: absolute;
+    right: 1rem;
+    text-align: right;
+    text-transform: uppercase;
+    top: 0;
+  }
+
+  pre[class~='language-javascript']::before {
+    content: 'js';
+    background: #f7df1e;
+    color: black;
+  }
+
+  pre[class~='language-js']::before {
+    content: 'js';
+    background: #f7df1e;
+    color: black;
+  }
+
+  pre[class~='language-jsx']::before {
+    content: 'jsx';
+    background: #f7df1e;
+    color: whitesmoke;
+  }
+
+  pre[class~='language-typescript']::before {
+    content: 'ts';
+    background: #0077d8;
+    color: whitesmoke;
+  }
+
+  pre[class~='language-ts']::before {
+    content: 'ts';
+    background: #0077d8;
+    color: whitesmoke;
+  }
+
+  pre[class~='language-tsx']::before {
+    content: 'tsx';
+    background: #0077d8;
+    color: whitesmoke;
+  }
+
+  pre[class~='language-html']::before {
+    content: 'html';
+    background: #005a9c;
+    color: white;
+  }
+
+  pre[class~='language-css']::before {
+    content: 'css';
+    background: #ff9800;
+    color: white;
+  }
+}

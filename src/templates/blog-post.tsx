@@ -3,6 +3,8 @@ import { graphql, Link } from 'gatsby';
 import { BlogFrontmatter } from '../types/BlogFrontmatter';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Typography from '../elements/typography';
 
 const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
   data,
@@ -19,8 +21,11 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
 
   return (
     <Layout>
+      <SEO title={title} />
       <div>
-        <h1>{title}</h1>
+        <Typography component="h1" heading size="xl">
+          {title}
+        </Typography>
         <div>
           <em>{date}</em>
         </div>

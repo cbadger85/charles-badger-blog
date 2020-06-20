@@ -1,0 +1,10 @@
+.image {
+  display: block;
+
+  /************************************************************
+  This style is mirrored in the 'gatsby-remark-images' plugin 
+  option 'wrapperStyle and is only used for incompatible 
+  images such as gifs.
+  ***********************************************************/
+  margin: 3rem auto;
+}
