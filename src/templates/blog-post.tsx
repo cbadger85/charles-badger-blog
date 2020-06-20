@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { BlogFrontmatter } from '../types/BlogFrontmatter';
+import { BlogFrontmatter } from '../types/blog-frontmatter';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import SEO from '../components/seo';

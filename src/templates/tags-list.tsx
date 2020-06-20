@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
-import Image from '../components/image';
+import GatsbyImage from '../components/gatsby-image';
 import SEO from '../components/seo';
-import { BlogFrontmatter } from '../types/BlogFrontmatter';
+import { BlogFrontmatter } from '../types/blog-frontmatter';
 
 const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   data,
@@ -19,7 +19,7 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
+        <GatsbyImage />
       </div>
       {posts.map(({ node }) => (
         <div key={node.fields.slug}>
