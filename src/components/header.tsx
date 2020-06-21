@@ -1,51 +1,72 @@
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import React, { useEffect, useRef, useState } from 'react';
+import Typography from '../elements/typography';
+import { getClasses } from '../utils/getClasses';
+import styles from './header.module.scss';
+import throttle from 'lodash/throttle';
 
-const pluckTags = (posts: MdxEdges[]): string[] =>
-  Array.from(new Set(posts.flatMap(post => post.node.fields.tags)));
+// const pluckTags = (posts: MdxEdges[]): string[] =>
+//   Array.from(new Set(posts.flatMap(post => post.node.fields.tags)));
+
+const MINIMUM_SCROLL = 50;
 
 const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
-  const data = useStaticQuery<TagQueryData>(graphql`
-    query {
-      allMdx {
-        edges {
-          node {
-            fields {
-              tags
-            }
-          }
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery<TagQueryData>(graphql`
+  //   query {
+  //     allMdx {
+  //       edges {
+  //         node {
+  //           fields {
+  //             tags
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const tagList = pluckTags(data.allMdx.edges);
+  // const tagList = pluckTags(data.allMdx.edges);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isFaded, setIsFaded] = useState(window.scrollY > MINIMUM_SCROLL);
+
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      setIsFaded(window.scrollY > MINIMUM_SCROLL);
+    }, 250);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
 
   return (
     <header
-      style={{
-        background: `rebeccapurple`,
-        marginBottom: `1.45rem`,
-      }}
+      ref={headerRef}
+      className={getClasses(
+        styles.headerWrapper,
+        isFaded && styles.headerWrapperScroll
+      )}
     >
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
-        }}
+        className={getClasses(styles.header, isFaded && styles.headerScroll)}
       >
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
+        <Typography component="h1" heading size="m">
+          <Link to="/" className={styles.headerTitle}>
             {siteTitle}
           </Link>
-        </h1>
+        </Typography>
+        <nav>
+          <ul className={styles.navList}>
+            <li className={styles.navItem}>
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );

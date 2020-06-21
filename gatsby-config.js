@@ -1,3 +1,5 @@
+const { IMAGE_MAX_WIDTH } = require('./gatsby/constants');
+
 module.exports = {
   siteMetadata: {
     title: 'Charles Badger',
@@ -30,7 +32,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 960,
+              maxWidth: IMAGE_MAX_WIDTH,
               linkImagesToOriginal: false,
               withWebp: true,
               wrapperStyle: fluidReult => `

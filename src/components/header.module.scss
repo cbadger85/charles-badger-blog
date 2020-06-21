@@ -1,0 +1,59 @@
+@import '../styles/shadows';
+
+.headerWrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: box-shadow 0.2s ease-in-out;
+  background-color: white;
+}
+
+.headerWrapperScroll {
+  @include shadow-4;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 1.45rem 1.0875rem;
+  transition: padding 0.2s ease-in-out;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.headerScroll {
+  padding: 0.8rem 1.0875rem;
+  transition: padding 0.2s ease-in-out;
+}
+
+.headerTitle {
+  text-decoration: none;
+  color: black;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.navItem {
+  margin-left: 1rem;
+  font-weight: bold;
+
+  a {
+    color: gray;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: black;
+  }
+}

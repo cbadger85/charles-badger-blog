@@ -33,7 +33,7 @@ exports.createBlogList = (createPage, posts) => {
   const uri = '/blog';
 
   createPage({
-    path: '/',
+    path: uri,
     component: BlogListTemplate,
     context: {
       limit: POSTS_PER_PAGE,

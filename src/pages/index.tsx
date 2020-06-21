@@ -5,13 +5,8 @@ import GatsbyImage from '../components/gatsby-image';
 import SEO from '../components/seo';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
 
-const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
-  data,
-  pathContext,
-}) => {
+const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
   const posts = data.allMdx.edges;
-
-  const { nextPageLink, prevPageLink } = pathContext;
 
   return (
     <Layout>
@@ -32,28 +27,6 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
             {' '}
             <em>published on</em> {node.frontmatter.date}
           </small>
-          <p>{node.frontmatter.excerpt}</p>
-          <br />
-          {prevPageLink && (
-            <p>
-              <Link to={prevPageLink}>
-                <span role="img" aria-label="point-left">
-                  👈 Prev Page
-                </span>
-                Previous
-              </Link>
-            </p>
-          )}
-          {nextPageLink && (
-            <p>
-              <Link to={nextPageLink}>
-                <span role="img" aria-label="point-left">
-                  Next Page 👉
-                </span>
-                Next
-              </Link>
-            </p>
-          )}
         </div>
       ))}
     </Layout>
@@ -63,17 +36,13 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
 export default IndexPage;
 
 export const query = graphql`
-  query ListPageQuery($skip: Int!, $limit: Int!) {
+  query HomePageQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allMdx(
-      sort: { order: DESC, fields: frontmatter___date }
-      limit: $limit
-      skip: $skip
-    ) {
+    allMdx(sort: { order: DESC, fields: frontmatter___date }, limit: 10) {
       totalCount
       edges {
         node {
@@ -97,13 +66,5 @@ interface IndexPageProps<T> {
     allMdx: {
       edges: { node: { fields: { slug: string }; frontmatter: T } }[];
     };
-  };
-  pathContext: {
-    currentPage: number;
-    limit: number;
-    numPages: number;
-    skip: number;
-    nextPageLink?: string;
-    prevPageLink?: string;
   };
 }
