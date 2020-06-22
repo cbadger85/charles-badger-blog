@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './header';
 import styles from './layout.module.scss';
+import debounce from 'lodash/debounce';
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery<TitleQuery>(graphql`
@@ -14,12 +15,32 @@ const Layout: React.FC = ({ children }) => {
     }
   `);
 
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--max-height',
+      `${window.innerHeight}px`
+    );
+
+    const handleResize = debounce(() => {
+      document.documentElement.style.setProperty(
+        '--max-height',
+        `${window.innerHeight}px`
+      );
+    }, 250);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+
   return (
-    <div>
+    <div style={{ height: '100%' }}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className={styles.contents}>
-        <main>{children}</main>
-        <footer>
+        <main className={styles.main}>{children}</main>
+        <footer className={styles.footer}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

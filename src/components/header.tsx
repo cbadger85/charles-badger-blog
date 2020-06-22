@@ -57,11 +57,11 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
       <div
         className={getClasses(styles.header, isFaded && styles.headerScroll)}
       >
-        <Typography component="h1" heading size="m">
-          <Link to="/" className={styles.headerTitle}>
+        <Link to="/" className={styles.headerTitle}>
+          <Typography component="h1" heading size="m">
             {siteTitle}
-          </Link>
-        </Typography>
+          </Typography>
+        </Link>
         {isPhone ? <NavMenu /> : <NavList isBar />}
       </div>
     </header>

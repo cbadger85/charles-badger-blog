@@ -15,11 +15,6 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
       <Typography component="h1" heading size="l">
         Most Recent Articles
       </Typography>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <GatsbyImage />
-      </div>
       {posts.map(({ node }) => (
         <div key={node.fields.slug}>
           <Link to={`/blog/posts${node.fields.slug}`}>

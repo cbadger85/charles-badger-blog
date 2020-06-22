@@ -2,4 +2,13 @@
   margin: 0 auto;
   max-width: var(--max-width);
   padding: 100px 1.0875rem 1.45rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: var(--max-height);
+}
+
+.main {
+  flex: 1;
 }
