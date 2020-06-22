@@ -30,6 +30,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-focus-on": "^3.4.1",
     "react-helmet": "^6.0.0",
     "slugify": "^1.4.0"
   },

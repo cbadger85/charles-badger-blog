@@ -4,6 +4,9 @@ import Typography from '../elements/typography';
 import { getClasses } from '../utils/getClasses';
 import styles from './header.module.scss';
 import throttle from 'lodash/throttle';
+import { useMediaQuery } from '../hooks/useMediaQuery';
+import NavList from './nav-list';
+import NavMenu from './nav-menu';
 
 // const pluckTags = (posts: MdxEdges[]): string[] =>
 //   Array.from(new Set(posts.flatMap(post => post.node.fields.tags)));
@@ -28,6 +31,8 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
   // const tagList = pluckTags(data.allMdx.edges);
   const headerRef = useRef<HTMLDivElement>(null);
   const [isFaded, setIsFaded] = useState(window.scrollY > MINIMUM_SCROLL);
+
+  const isPhone = useMediaQuery(570);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -57,16 +62,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
             {siteTitle}
           </Link>
         </Typography>
-        <nav>
-          <ul className={styles.navList}>
-            <li className={styles.navItem}>
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
-        </nav>
+        {isPhone ? <NavMenu /> : <NavList isBar />}
       </div>
     </header>
   );

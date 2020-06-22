@@ -1,0 +1,140 @@
+@import '../styles/util-mixins.scss';
+
+.hamburgerMenu {
+  @include clear-button-defaults;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s linear;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0px;
+  outline: hidden;
+  background-color: transparent;
+}
+
+.menuBar {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: calc(50% - 4px);
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: 0.25s linear;
+}
+
+.menuBarOpen {
+  width: 50%;
+}
+
+.topLeft {
+  left: 4px;
+  border-radius: 9px 0 0 9px;
+  top: 4px;
+}
+
+.topLeftOpen {
+  transform: rotate(45deg);
+  left: 3px;
+  top: 6px;
+}
+
+.topRight {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+  top: 4px;
+}
+
+.topRightOpen {
+  transform: rotate(-45deg);
+  left: calc(50% - 3px);
+  top: 6px;
+}
+
+.middleLeft {
+  left: 4px;
+  border-radius: 9px 0 0 9px;
+  top: 11px;
+}
+
+.middleLeftOpen {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.middleRight {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+  top: 11px;
+}
+
+.middleRightOpen {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.bottomLeft {
+  left: 4px;
+  border-radius: 9px 0 0 9px;
+  top: 18px;
+}
+
+.bottomLeftOpen {
+  transform: rotate(-45deg);
+  left: 3px;
+  top: 15px;
+}
+
+.bottomRight {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+  top: 18px;
+}
+
+.bottomRightOpen {
+  transform: rotate(45deg);
+  left: calc(50% - 3px);
+  top: 15px;
+}
+
+.navMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transform: translateY(-100%);
+  transition: 0.25s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navMenuOpen {
+  transform: translateY(0);
+  transition: 0.25s ease-in-out;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  font-weight: bold;
+
+  a {
+    color: gray;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: black;
+  }
+}
