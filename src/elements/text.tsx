@@ -6,7 +6,7 @@ export const Paragraph: React.FC = props => (
 );
 
 export const Italic: React.FC = props => (
-  <Typography component="span" size="s" italic {...props} />
+  <Typography component="em" size="s" italic {...props} />
 );
 
 export const Bold: React.FC = props => (
