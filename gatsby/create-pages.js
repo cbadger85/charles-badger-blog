@@ -61,29 +61,31 @@ exports.createBlogList = (createPage, posts) => {
   });
 };
 
-exports.createTagListPages = (createPage, posts) => {
-  const BlogListTemplate = path.resolve('src/templates/tags-list.tsx');
+exports.createCategoriesListPages = (createPage, posts) => {
+  const BlogListTemplate = path.resolve('src/templates/categories-list.tsx');
 
-  Object.entries(groupPostsByCategory(posts)).forEach(([tag, tagPosts]) => {
-    const numPages = Math.ceil(tagPosts.length / POSTS_PER_PAGE);
-    const tagSlug = slugify(tag);
-    const uri = `/blog/tags/${tagSlug}`;
+  Object.entries(groupPostsByCategory(posts)).forEach(
+    ([category, categoryPosts]) => {
+      const numPages = Math.ceil(categoryPosts.length / POSTS_PER_PAGE);
+      const categorySlug = slugify(category);
+      const uri = `/blog/categories/${categorySlug}`;
 
-    tagPosts.forEach((post, i) => {
-      createPage({
-        path: `/blog/tags/${tagSlug}/${i + 1}`,
-        component: BlogListTemplate,
-        context: {
-          limit: POSTS_PER_PAGE,
-          skip: i * POSTS_PER_PAGE,
-          numPages,
-          currentPage: i + 1,
-          tag,
-          tagSlug,
-          nextPageLink: i === numPages - 1 ? null : `${uri}/${i + 2}`,
-          prevPageLink: i === 0 ? null : `${uri}/${i}`,
-        },
+      categoryPosts.forEach((_, i) => {
+        createPage({
+          path: `${uri}/${i + 1}`,
+          component: BlogListTemplate,
+          context: {
+            limit: POSTS_PER_PAGE,
+            skip: i * POSTS_PER_PAGE,
+            numPages,
+            currentPage: i + 1,
+            category: category,
+            categorySlug: categorySlug,
+            nextPageLink: i === numPages - 1 ? null : `${uri}/${i + 2}`,
+            prevPageLink: i === 0 ? null : `${uri}/${i}`,
+          },
+        });
       });
-    });
-  });
+    }
+  );
 };

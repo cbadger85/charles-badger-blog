@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import GatsbyImage from '../components/gatsby-image';
 import SEO from '../components/seo';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
+import Typography from '../elements/typography';
 
 const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
   const posts = data.allMdx.edges;
@@ -11,7 +12,9 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
+      <Typography component="h1" heading size="l">
+        Most Recent Articles
+      </Typography>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>

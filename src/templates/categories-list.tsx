@@ -62,14 +62,14 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
 export default PostsByTagPage;
 
 export const query = graphql`
-  query TagPageQuery($skip: Int!, $limit: Int!, $tag: String!) {
+  query TagPageQuery($skip: Int!, $limit: Int!, $category: String!) {
     site {
       siteMetadata {
         title
       }
     }
     allMdx(
-      filter: { fields: { tags: { eq: $tag } } }
+      filter: { fields: { categories: { eq: $category } } }
       sort: { order: DESC, fields: frontmatter___date }
       limit: $limit
       skip: $skip
@@ -102,8 +102,8 @@ interface PostsByTagPageProps<T> {
     currentPage: number;
     numPages: number;
     skip: number;
-    tag: string;
-    tagSlug: string;
+    category: string;
+    categorySlug: string;
     nextPageLink?: string;
     prevPageLink?: string;
   };

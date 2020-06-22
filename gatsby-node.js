@@ -2,7 +2,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const {
   createBlogList,
   createPosts,
-  createTagListPages,
+  createCategoriesListPages,
 } = require('./gatsby/create-pages');
 
 exports.createPages = ({ graphql, actions }) =>
@@ -14,10 +14,9 @@ exports.createPages = ({ graphql, actions }) =>
             fields {
               title
               slug
-              tags
+              categories
             }
             frontmatter {
-              title
               tags
             }
           }
@@ -34,7 +33,7 @@ exports.createPages = ({ graphql, actions }) =>
 
     createPosts(createPage, edges);
     createBlogList(createPage, edges);
-    createTagListPages(createPage, edges);
+    createCategoriesListPages(createPage, edges);
   });
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -50,15 +49,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
 
     createNodeField({
-      name: 'tags',
-      node,
-      value: node.frontmatter.tags,
-    });
-
-    createNodeField({
       name: 'title',
       node,
       value: node.frontmatter.title,
+    });
+
+    createNodeField({
+      name: 'categories',
+      node,
+      value: node.frontmatter.categories || [],
     });
   }
 };

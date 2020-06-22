@@ -3,11 +3,11 @@ exports.range = (size, startsAt = 0) =>
 
 exports.groupPostsByCategory = posts =>
   posts.reduce((map, post) => {
-    post.node.fields.tags.forEach(tag => {
-      if (!map[tag]) {
-        map[tag] = [];
+    post.node.fields.categories.forEach(category => {
+      if (!map[category]) {
+        map[category] = [];
       }
-      map[tag].push(post);
+      map[category].push(post);
     });
     return map;
   }, {});
