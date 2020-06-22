@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { getClasses } from '../utils/getClasses';
 import Typography from '../elements/typography';
 
-const NavList: React.FC<NavListProps> = ({ isBar }) => {
+const NavList: React.FC<NavListProps> = ({ isBar, onClick }) => {
   return (
     <nav>
       {!isBar && (
@@ -17,7 +17,7 @@ const NavList: React.FC<NavListProps> = ({ isBar }) => {
           <li
             className={getClasses(styles.navItem, isBar && styles.navItemBar)}
           >
-            <Link to="/">
+            <Link to="/" onClick={onClick}>
               <Typography component="span" bold size={isBar ? 's' : 'm'}>
                 Home
               </Typography>
@@ -25,14 +25,14 @@ const NavList: React.FC<NavListProps> = ({ isBar }) => {
           </li>
         )}
         <li className={getClasses(styles.navItem, isBar && styles.navItemBar)}>
-          <Link to="/blog">
+          <Link to="/blog" onClick={onClick}>
             <Typography component="span" bold size={isBar ? 's' : 'm'}>
               Blog
             </Typography>
           </Link>
         </li>
         <li className={getClasses(styles.navItem, isBar && styles.navItemBar)}>
-          <Link to="/about">
+          <Link to="/about" onClick={onClick}>
             <Typography component="span" bold size={isBar ? 's' : 'm'}>
               About
             </Typography>
@@ -47,4 +47,5 @@ export default NavList;
 
 interface NavListProps {
   isBar?: boolean;
+  onClick?: () => void;
 }

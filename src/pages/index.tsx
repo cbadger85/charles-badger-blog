@@ -1,17 +1,15 @@
+import { graphql } from 'gatsby';
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import GatsbyImage from '../components/gatsby-image';
-import SEO from '../components/seo';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
-import Typography from '../elements/typography';
 import ArticleListItem from '../components/article-list-item';
+import SEO from '../components/seo';
+import Typography from '../elements/typography';
+import { BlogFrontmatter } from '../types/blog-frontmatter';
 
 const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
   const posts = data.allMdx.edges;
 
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       <Typography component="h1" heading size="l">
         Most Recent Articles
@@ -25,7 +23,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
           categories={node.fields.categories}
         />
       ))}
-    </Layout>
+    </>
   );
 };
 

@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
-import styles from './nav-menu.module.scss';
-import { getClasses } from '../utils/getClasses';
+import React, { useRef, useState } from 'react';
 import { FocusOn } from 'react-focus-on';
-import Typography from '../elements/typography';
-import { Link } from 'gatsby';
+import { getClasses } from '../utils/getClasses';
 import NavList from './nav-list';
+import styles from './nav-menu.module.scss';
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const toggleMenu = () => setIsOpen(isOpen => !isOpen);
+  const handleOpen = () => {
+    setIsOpen(true);
+    buttonRef.current?.blur();
+  };
+  const handleClose = () => setIsOpen(false);
 
   return (
-    <FocusOn enabled={isOpen} onEscapeKey={toggleMenu} autoFocus={false}>
+    <FocusOn enabled={isOpen} onEscapeKey={handleClose} autoFocus={false}>
       <button
         className={styles.hamburgerMenu}
-        onClick={toggleMenu}
+        onClick={isOpen ? handleClose : handleOpen}
         aria-label="close"
+        ref={buttonRef}
       >
         <span
           className={getClasses(
@@ -72,7 +76,7 @@ const NavMenu = () => {
         aria-labelledby="navigation-menu"
         className={getClasses(styles.navMenu, isOpen && styles.navMenuOpen)}
       >
-        <NavList />
+        <NavList onClick={handleClose} />
       </div>
     </FocusOn>
   );

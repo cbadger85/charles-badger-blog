@@ -1,10 +1,9 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Layout from '../components/layout';
+import React from 'react';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
+import { BlogFrontmatter } from '../types/blog-frontmatter';
 
 const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
   data,
@@ -20,7 +19,7 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
   } = pathContext;
 
   return (
-    <Layout>
+    <>
       <SEO title={title} />
       <div>
         <Typography component="h1" heading size="xl">
@@ -53,7 +52,7 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
           )}
         </p>
       </div>
-    </Layout>
+    </>
   );
 };
 

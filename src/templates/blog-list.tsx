@@ -1,6 +1,5 @@
+import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
 import GatsbyImage from '../components/gatsby-image';
 import SEO from '../components/seo';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
@@ -14,7 +13,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   const { nextPageLink, prevPageLink } = pathContext;
 
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
@@ -56,7 +55,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
           )}
         </div>
       ))}
-    </Layout>
+    </>
   );
 };
 
