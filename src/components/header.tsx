@@ -29,8 +29,9 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
   // `);
 
   // const tagList = pluckTags(data.allMdx.edges);
+  const scrollY = typeof window === 'undefined' ? 0 : window.screenY;
   const headerRef = useRef<HTMLDivElement>(null);
-  const [isFaded, setIsFaded] = useState(window.scrollY > MINIMUM_SCROLL);
+  const [isFaded, setIsFaded] = useState(scrollY > MINIMUM_SCROLL);
 
   const isPhone = useMediaQuery(570);
 

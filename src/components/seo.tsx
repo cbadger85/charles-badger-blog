@@ -77,12 +77,12 @@ const SEO: React.FC<SEOProps> = ({
       link={[
         {
           href:
-            'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap',
+            'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=fallback',
           rel: 'stylesheet',
         },
         {
           href:
-            'https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap',
+            'https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=fallback',
           rel: 'stylesheet',
         },
       ]}
