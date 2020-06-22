@@ -1,0 +1,32 @@
+.articleItem {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.firstRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.articleTitle {
+  text-decoration: none;
+  color: black;
+}
+
+.pillWrapper {
+  flex: 1;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pillLink {
+  text-decoration: none;
+}
+
+.pill {
+  margin-right: 0.5rem;
+}

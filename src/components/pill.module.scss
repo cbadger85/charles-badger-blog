@@ -1,0 +1,21 @@
+.pill {
+  padding: 0.1rem 1rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.pillBlack {
+  background-color: black;
+  color: white;
+}
+
+.pillReact {
+  background-color: #000000cc;
+  color: aqua;
+}
+
+.pillYellow {
+  background-color: gold;
+  color: black;
+}

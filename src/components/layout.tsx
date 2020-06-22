@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Header from './header';
 import styles from './layout.module.scss';
 import debounce from 'lodash/debounce';
+import Footer from './footer';
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery<TitleQuery>(graphql`
@@ -36,16 +37,12 @@ const Layout: React.FC = ({ children }) => {
   });
 
   return (
-    <div style={{ height: '100%' }}>
+    <div className={styles.layoutContainer}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className={styles.contents}>
+      <div className={styles.layout}>
         <main className={styles.main}>{children}</main>
-        <footer className={styles.footer}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
+      <Footer />
     </div>
   );
 };
