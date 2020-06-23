@@ -1,16 +1,9 @@
 .cardWrapper {
-  position: relative;
-  z-index: 1;
+  cursor: pointer;
 }
 
 .articleLink {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: black;
-  padding: 0.5rem 1rem;
+  color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
 }
 
@@ -25,7 +18,7 @@
 }
 
 .articleItem:hover {
-  transform: scale(1.01);
+  transform: scale(1.008);
   transition: transform 0.1s ease-in-out;
   border-color: rgba(0, 0, 0, 1);
 }
@@ -33,12 +26,13 @@
 .firstRow {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .pillWrapper {
   flex: 1;
   margin-left: 1rem;
+  margin-top: 0.2rem;
   display: flex;
   justify-content: flex-end;
 }
@@ -49,6 +43,5 @@
 
 .pill {
   position: relative;
-  margin-right: 0.5rem;
-  z-index: 1;
+  margin-left: 0.5rem;
 }

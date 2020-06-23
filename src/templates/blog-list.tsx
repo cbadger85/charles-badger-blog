@@ -1,8 +1,9 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import GatsbyImage from '../components/gatsby-image';
 import SEO from '../components/seo';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
+import Typography from '../elements/typography';
+import ArticleListItem from '../components/article-list-item';
 
 const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   data,
@@ -15,46 +16,38 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   return (
     <>
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <GatsbyImage />
-      </div>
+      <Typography component="h1" heading size="l">
+        Articles
+      </Typography>
       {posts.map(({ node }) => (
-        <div key={node.fields.slug}>
-          <Link to={`/blog/posts${node.fields.slug}`}>
-            {node.frontmatter.title}
-          </Link>
-          &nbsp;
-          <small>
-            {' '}
-            <em>published on</em> {node.frontmatter.date}
-          </small>
-          <p>{node.frontmatter.excerpt}</p>
-          <br />
-          {prevPageLink && (
-            <p>
-              <Link to={prevPageLink}>
-                <span role="img" aria-label="point-left">
-                  👈 Prev Page
-                </span>
-                Previous
-              </Link>
-            </p>
-          )}
-          {nextPageLink && (
-            <p>
-              <Link to={nextPageLink}>
-                <span role="img" aria-label="point-left">
-                  Next Page 👉
-                </span>
-                Next
-              </Link>
-            </p>
-          )}
-        </div>
+        <ArticleListItem
+          key={node.id}
+          title={node.frontmatter.title}
+          slug={node.fields.slug}
+          date={node.frontmatter.date}
+          categories={node.fields.categories}
+        />
       ))}
+      {prevPageLink && (
+        <p>
+          <Link to={prevPageLink}>
+            <span role="img" aria-label="point-left">
+              👈 Prev Page
+            </span>
+            Previous
+          </Link>
+        </p>
+      )}
+      {nextPageLink && (
+        <p>
+          <Link to={nextPageLink}>
+            <span role="img" aria-label="point-left">
+              Next Page 👉
+            </span>
+            Next
+          </Link>
+        </p>
+      )}
     </>
   );
 };
@@ -79,6 +72,7 @@ export const query = graphql`
           id
           fields {
             slug
+            categories
           }
           frontmatter {
             title
@@ -94,7 +88,13 @@ export const query = graphql`
 interface IndexPageProps<T> {
   data: {
     allMdx: {
-      edges: { node: { fields: { slug: string }; frontmatter: T } }[];
+      edges: {
+        node: {
+          id: string;
+          fields: { slug: string; categories: string[] };
+          frontmatter: T;
+        };
+      }[];
     };
   };
   pathContext: {
