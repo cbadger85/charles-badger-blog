@@ -5,6 +5,21 @@ import Typography from '../elements/typography';
 import slugify from 'slugify';
 import Pill from './pill';
 import { navigate } from 'gatsby';
+import { useMediaQuery } from '../hooks/useMediaQuery';
+
+const CategoryPills: React.FC<{ categories: string[] }> = ({ categories }) => (
+  <div className={styles.pillWrapper}>
+    {categories.map(category => (
+      <Link
+        key={category}
+        className={styles.pillLink}
+        to={`/blog/categories/${slugify(category)}/1`}
+      >
+        <Pill className={styles.pill}>{category}</Pill>
+      </Link>
+    ))}
+  </div>
+);
 
 const ArticleListItem: React.FC<ArticleListItemProps> = ({
   slug,
@@ -13,6 +28,8 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   date,
 }) => {
   const [clickTimeStamp, setClickTimeStamp] = useState<number>();
+
+  const isPhone = useMediaQuery(570);
 
   const handleMouseDown = () => {
     setClickTimeStamp(Date.now());
@@ -38,25 +55,16 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
             <Typography
               component="span"
               bold
-              size="m"
+              size={isPhone ? 's' : 'm'}
               className={styles.articleTitle}
             >
               {title}
             </Typography>
           </Link>
-          <div className={styles.pillWrapper}>
-            {categories.map(category => (
-              <Link
-                key={category}
-                className={styles.pillLink}
-                to={`/blog/categories/${slugify(category)}/1`}
-              >
-                <Pill className={styles.pill}>{category}</Pill>
-              </Link>
-            ))}
-          </div>
+          {!isPhone && <CategoryPills categories={categories} />}
         </div>
         <Typography size="xs">{date}</Typography>
+        {isPhone && <CategoryPills categories={categories} />}
       </div>
     </div>
   );
