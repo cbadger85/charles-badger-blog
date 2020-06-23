@@ -12,11 +12,13 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   date,
 }) => {
   return (
-    <Link to={`/blog/posts${slug}`} className={styles.articleLink}>
+    <div className={styles.cardWrapper}>
       <div className={styles.articleItem}>
         <div className={styles.firstRow}>
           <Typography component="span" bold size="m">
-            {title}
+            <Link to={`/blog/posts${slug}`} className={styles.articleLink}>
+              {title}
+            </Link>
           </Typography>
           <div className={styles.pillWrapper}>
             {categories.map(category => (
@@ -32,7 +34,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
         </div>
         <Typography size="xs">{date}</Typography>
       </div>
-    </Link>
+    </div>
   );
 };
 
