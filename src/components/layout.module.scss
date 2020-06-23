@@ -3,20 +3,12 @@
   flex-direction: column;
   min-height: 100vh;
   min-height: var(--max-height);
-  width: 100vw;
+  align-items: center;
 }
 
 .layout {
   max-width: var(--max-width);
   padding: 100px 1.0875rem 1.45rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
   flex: 1;
-}
-
-.main {
-  flex: 0 0 100%;
-  max-width: var(--max-width);
-  width: 90vw;
+  width: 100%;
 }

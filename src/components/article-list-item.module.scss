@@ -1,19 +1,26 @@
+.articleLink {
+  text-decoration: none;
+}
+
 .articleItem {
   margin: 1rem 0;
   padding: 1rem;
   border: 1px solid black;
   border-radius: 8px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.articleItem:hover {
+  span:first-of-type {
+    text-decoration: underline;
+  }
 }
 
 .firstRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.articleTitle {
-  text-decoration: none;
-  color: black;
 }
 
 .pillWrapper {

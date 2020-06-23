@@ -13,29 +13,27 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
 }) => {
   console.log(categories);
   return (
-    <div className={styles.articleItem}>
-      <div className={styles.firstRow}>
-        <Link to={`/blog/posts${slug}`} className={styles.articleTitle}>
+    <Link to={`/blog/posts${slug}`} className={styles.articleLink}>
+      <div className={styles.articleItem}>
+        <div className={styles.firstRow}>
           <Typography component="span" bold size="m">
             {title}
           </Typography>
-        </Link>
-        <div className={styles.pillWrapper}>
-          {categories.map(category => (
-            <Link
-              key={category}
-              className={styles.pillLink}
-              to={`/blog/categories/${slugify(category)}/1`}
-            >
-              <Pill className={styles.pill}>{category}</Pill>
-            </Link>
-          ))}
+          <div className={styles.pillWrapper}>
+            {categories.map(category => (
+              <Link
+                key={category}
+                className={styles.pillLink}
+                to={`/blog/categories/${slugify(category)}/1`}
+              >
+                <Pill className={styles.pill}>{category}</Pill>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-      <div>
         <Typography size="xs">{date}</Typography>
       </div>
-    </div>
+    </Link>
   );
 };
 

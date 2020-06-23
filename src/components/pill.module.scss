@@ -1,3 +1,7 @@
+$react-pill-color: #000000cc;
+$javascript-pill-color: gold;
+$black-pill-color: black;
+
 .pill {
   padding: 0.1rem 1rem;
   border-radius: 25px;
@@ -6,16 +10,28 @@
 }
 
 .pillBlack {
-  background-color: black;
+  background-color: $black-pill-color;
   color: white;
 }
 
+.pillBlack:hover {
+  background-color: lighten($color: $black-pill-color, $amount: 15);
+}
+
 .pillReact {
-  background-color: #000000cc;
+  background-color: $react-pill-color;
   color: aqua;
 }
 
+.pillReact:hover {
+  background-color: lighten($color: $react-pill-color, $amount: 15);
+}
+
 .pillYellow {
-  background-color: gold;
+  background-color: $javascript-pill-color;
   color: black;
+}
+
+.pillYellow:hover {
+  background-color: lighten($color: $javascript-pill-color, $amount: 15);
 }
