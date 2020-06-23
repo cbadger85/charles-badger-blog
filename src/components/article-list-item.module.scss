@@ -12,9 +12,8 @@
 }
 
 .articleItem:hover {
-  span:first-of-type {
-    text-decoration: underline;
-  }
+  transform: scale(1.01);
+  transition: transform 0.1s ease-in-out;
 }
 
 .firstRow {

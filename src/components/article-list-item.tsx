@@ -11,7 +11,6 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   title,
   date,
 }) => {
-  console.log(categories);
   return (
     <Link to={`/blog/posts${slug}`} className={styles.articleLink}>
       <div className={styles.articleItem}>
