@@ -15,7 +15,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Blog" />
       <Typography component="h1" heading size="l">
         Articles
       </Typography>

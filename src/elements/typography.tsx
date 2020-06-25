@@ -20,6 +20,7 @@ const Typography: React.FC<TypographyProps> = ({
   heading,
   children,
   className,
+  transform,
   ...props
 }) => {
   const Component: React.ElementType = component;
@@ -32,6 +33,7 @@ const Typography: React.FC<TypographyProps> = ({
     underline && !strikethrough && styles.underline,
     underline && strikethrough && styles.underlineStrikethrough,
     heading && styles.heading,
+    transform && styles[transform],
     styles.typography
   );
 
@@ -64,6 +66,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   strikethrough?: boolean;
   underline?: boolean;
   heading?: boolean;
+  transform?: 'uppercase' | 'lowercase' | 'capitalize';
 }
 
 export default Typography;
