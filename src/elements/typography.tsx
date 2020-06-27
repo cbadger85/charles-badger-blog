@@ -2,12 +2,13 @@ import React, { HTMLAttributes } from 'react';
 import { getClasses } from '../utils/getClasses';
 import styles from './typography.module.scss';
 
-const sizeToClassMap: Record<TypographySize, string> = {
+const sizeToClassMap = {
   xl: styles.xl,
   l: styles.l,
   m: styles.m,
   s: styles.s,
   xs: styles.xs,
+  xxs: styles.xxs,
 };
 
 const Typography: React.FC<TypographyProps> = ({
@@ -57,11 +58,9 @@ type TypographyComponentType =
   | 'em'
   | 'a';
 
-type TypographySize = 'xl' | 'l' | 'm' | 's' | 'xs';
-
 interface TypographyProps extends HTMLAttributes<HTMLElement> {
   component?: TypographyComponentType;
-  size?: TypographySize;
+  size?: keyof typeof sizeToClassMap;
   bold?: boolean;
   italic?: boolean;
   strikethrough?: boolean;

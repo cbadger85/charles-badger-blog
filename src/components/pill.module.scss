@@ -1,5 +1,6 @@
 $react-pill-color: #000000cc;
 $javascript-pill-color: gold;
+$typescript-pill-color: dodgerblue;
 $black-pill-color: black;
 
 .pill {
@@ -34,4 +35,13 @@ $black-pill-color: black;
 
 .pillYellow:hover {
   background-color: lighten($color: $javascript-pill-color, $amount: 15);
+}
+
+.pillTypescript {
+  background-color: $typescript-pill-color;
+  color: white;
+}
+
+.pillTypescript:hover {
+  background-color: lighten($color: $typescript-pill-color, $amount: 15);
 }

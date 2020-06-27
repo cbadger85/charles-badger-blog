@@ -23,7 +23,7 @@ const PaginationLinks: React.FC<PaginationLinksProps> = ({
           <Link to={prevPageLink} className={styles.link}>
             <i
               role="img"
-              aria-label="point-right"
+              aria-label="point-left"
               className={styles.arrowLeft}
             />
             {prevPageText}

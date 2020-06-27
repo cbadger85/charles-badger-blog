@@ -21,7 +21,7 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
 
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} description={data.mdx.excerpt} />
       <div>
         <Typography component="h1" heading size="xl">
           {title}
@@ -45,7 +45,7 @@ export const postQuery = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
-      excerpt
+      excerpt(pruneLength: 250)
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -58,8 +58,8 @@ export const postQuery = graphql`
 interface PageData<T, U> {
   data: {
     mdx: {
-      excerpt: string;
       body: string;
+      excerpt: string;
       frontmatter: T;
     };
   };

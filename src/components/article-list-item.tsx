@@ -26,6 +26,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   categories,
   title,
   date,
+  excerpt,
 }) => {
   const [clickTimeStamp, setClickTimeStamp] = useState<number>();
 
@@ -53,7 +54,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
         <div className={styles.firstRow}>
           <Link to={`/blog/posts${slug}`} className={styles.articleLink}>
             <Typography
-              component="span"
+              component="h2"
               bold
               size={isPhone ? 's' : 'm'}
               className={styles.articleTitle}
@@ -61,10 +62,28 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
               {title}
             </Typography>
           </Link>
+        </div>
+        <Typography size="xxs">{date}</Typography>
+        <Typography
+          size={isPhone ? 'xs' : 's'}
+          component="p"
+          className={styles.excerpt}
+        >
+          {excerpt}
+        </Typography>
+        <div className={styles.lastRow}>
+          <Link to={`/blog/posts${slug}`} className={styles.articleLink}>
+            <Typography bold size="s" className={styles.readMoreLink}>
+              Read More
+              <i
+                role="img"
+                aria-label="point-right"
+                className={styles.arrowRight}
+              />
+            </Typography>
+          </Link>
           {!isPhone && <CategoryPills categories={categories} />}
         </div>
-        <Typography size="xs">{date}</Typography>
-        {isPhone && <CategoryPills categories={categories} />}
       </div>
     </div>
   );
@@ -77,4 +96,5 @@ interface ArticleListItemProps {
   categories: string[];
   title: string;
   date: string;
+  excerpt?: string;
 }

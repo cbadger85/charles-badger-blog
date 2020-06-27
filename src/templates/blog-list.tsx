@@ -32,6 +32,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
               slug={node.fields.slug}
               date={node.frontmatter.date}
               categories={node.fields.categories}
+              excerpt={node.excerpt}
             />
           ))}
         </div>
@@ -58,6 +59,7 @@ export const query = graphql`
       edges {
         node {
           id
+          excerpt(pruneLength: 250)
           fields {
             slug
             categories
@@ -79,6 +81,7 @@ interface IndexPageProps<T> {
       edges: {
         node: {
           id: string;
+          excerpt: string;
           fields: { slug: string; categories: string[] };
           frontmatter: T;
         };

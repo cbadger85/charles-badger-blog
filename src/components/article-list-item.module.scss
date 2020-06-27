@@ -5,13 +5,17 @@
 .articleLink {
   color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.04);
+    transition: transform 0.1s ease-in-out;
+  }
 }
 
 .articleItem {
   margin: 1rem 0;
-  padding: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.75);
-  border-radius: 8px;
+  padding: 1rem 0;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.8);
   transition: transform 0.1s ease-in-out;
@@ -21,6 +25,12 @@
   transform: scale(1.008);
   transition: transform 0.1s ease-in-out;
   border-color: rgba(0, 0, 0, 1);
+
+  .arrowRight {
+    opacity: 1;
+    transform: translateX(0.15rem);
+    transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  }
 }
 
 .firstRow {
@@ -29,19 +39,84 @@
   align-items: flex-start;
 }
 
-.pillWrapper {
+.excerpt {
+  margin-top: 0.5rem;
+}
+
+.lastRow {
   flex: 1;
-  margin-left: 1rem;
-  margin-top: 0.2rem;
+  margin-top: 0.8rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.readMoreLink {
+  color: grey;
+  transition: transform 0.1s ease-in-out;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    transition: transform 0.1s ease-in-out;
+    transform: scale(1.05);
+    color: black;
+  }
+}
+
+.arrowRight {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out;
+
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    right: 3px;
+  }
+
+  &::after {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(45deg);
+    bottom: 7px;
+  }
+  &::before {
+    width: 16px;
+    height: 2px;
+    bottom: 10px;
+    background: currentColor;
+  }
+}
+
+.pillWrapper {
+  display: flex;
 }
 
 .pillLink {
   text-decoration: none;
+  margin-left: 0.5rem;
+  transition: transform 0.1s ease-in-out;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out;
+  }
 }
 
 .pill {
   position: relative;
-  margin-left: 0.5rem;
 }

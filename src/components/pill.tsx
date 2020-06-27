@@ -6,6 +6,7 @@ import { getClasses } from '../utils/getClasses';
 const pillColor: Record<string, string> = {
   React: styles.pillReact,
   JavaScript: styles.pillYellow,
+  TypeScript: styles.pillTypescript,
 };
 
 const Pill: React.FC<PillProps> = ({ children, className }) => {
