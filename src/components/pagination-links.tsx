@@ -5,9 +5,9 @@ import { getClasses } from '../utils/getClasses';
 
 const PaginationLinks: React.FC<PaginationLinksProps> = ({
   prevPageLink,
-  prevPageText,
+  prevPageText = 'Previous Page',
   nextPageLink,
-  nextPageText,
+  nextPageText = 'Next Page',
 }) => {
   return (
     <div
@@ -26,7 +26,7 @@ const PaginationLinks: React.FC<PaginationLinksProps> = ({
               aria-label="point-right"
               className={styles.arrowLeft}
             />
-            {prevPageText || 'Prev Page'}
+            {prevPageText}
           </Link>
         </div>
       )}
@@ -35,7 +35,7 @@ const PaginationLinks: React.FC<PaginationLinksProps> = ({
           className={getClasses(styles.linkContainer, styles.nextLinkContainer)}
         >
           <Link to={nextPageLink} className={styles.link}>
-            {nextPageText || 'Next Page'}
+            {nextPageText}
             <i
               role="img"
               aria-label="point-right"

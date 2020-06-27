@@ -1,9 +1,10 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
-import SEO from '../components/seo';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
-import Typography from '../elements/typography';
 import ArticleListItem from '../components/article-list-item';
+import ArticleListLayout from '../components/article-list-layout';
+import SEO from '../components/seo';
+import Typography from '../elements/typography';
+import { BlogFrontmatter } from '../types/blog-frontmatter';
 
 const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   data,
@@ -16,38 +17,25 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   return (
     <>
       <SEO title="Blog" />
-      <Typography component="h1" heading size="l">
-        Articles
-      </Typography>
-      {posts.map(({ node }) => (
-        <ArticleListItem
-          key={node.id}
-          title={node.frontmatter.title}
-          slug={node.fields.slug}
-          date={node.frontmatter.date}
-          categories={node.fields.categories}
-        />
-      ))}
-      {prevPageLink && (
-        <p>
-          <Link to={prevPageLink}>
-            <span role="img" aria-label="point-left">
-              👈 Prev Page
-            </span>
-            Previous
-          </Link>
-        </p>
-      )}
-      {nextPageLink && (
-        <p>
-          <Link to={nextPageLink}>
-            <span role="img" aria-label="point-left">
-              Next Page 👉
-            </span>
-            Next
-          </Link>
-        </p>
-      )}
+      <ArticleListLayout
+        nextPageLink={nextPageLink}
+        prevPageLink={prevPageLink}
+      >
+        <div>
+          <Typography component="h1" heading size="l">
+            Articles
+          </Typography>
+          {posts.map(({ node }) => (
+            <ArticleListItem
+              key={node.id}
+              title={node.frontmatter.title}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              categories={node.fields.categories}
+            />
+          ))}
+        </div>
+      </ArticleListLayout>
     </>
   );
 };

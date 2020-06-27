@@ -4,6 +4,8 @@ import ArticleListItem from '../components/article-list-item';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
+import PaginationLinks from '../components/pagination-links';
+import ArticleListLayout from '../components/article-list-layout';
 
 const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   data,
@@ -15,38 +17,25 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   return (
     <>
       <SEO title={pathContext.category} />
-      <Typography component="h1" heading size="l" transform="capitalize">
-        {pathContext.category} Articles
-      </Typography>
-      {posts.map(({ node }) => (
-        <ArticleListItem
-          key={node.id}
-          title={node.frontmatter.title}
-          slug={node.fields.slug}
-          date={node.frontmatter.date}
-          categories={node.fields.categories}
-        />
-      ))}
-      {prevPageLink && (
-        <p>
-          <Link to={prevPageLink}>
-            <span role="img" aria-label="point-left">
-              👈 Previous Page
-            </span>
-            Previous
-          </Link>
-        </p>
-      )}
-      {nextPageLink && (
-        <p>
-          <Link to={nextPageLink}>
-            <span role="img" aria-label="point-left">
-              Next Page 👉
-            </span>
-            Next
-          </Link>
-        </p>
-      )}
+      <ArticleListLayout
+        nextPageLink={nextPageLink}
+        prevPageLink={prevPageLink}
+      >
+        <div>
+          <Typography component="h1" heading size="l" transform="capitalize">
+            {pathContext.category} Articles
+          </Typography>
+          {posts.map(({ node }) => (
+            <ArticleListItem
+              key={node.id}
+              title={node.frontmatter.title}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              categories={node.fields.categories}
+            />
+          ))}
+        </div>
+      </ArticleListLayout>
     </>
   );
 };

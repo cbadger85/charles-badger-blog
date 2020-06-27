@@ -39,9 +39,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <div className={styles.layoutContainer}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className={styles.layout}>
-        <main>{children}</main>
-      </div>
+      <main className={styles.layout}>{children}</main>
       <Footer />
     </div>
   );
