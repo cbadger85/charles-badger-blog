@@ -54,7 +54,8 @@ type TypographyComponentType =
   | 'h6'
   | 'span'
   | 'strong'
-  | 'em';
+  | 'em'
+  | 'a';
 
 type TypographySize = 'xl' | 'l' | 'm' | 's' | 'xs';
 

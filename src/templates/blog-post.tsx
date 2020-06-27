@@ -4,6 +4,7 @@ import React from 'react';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
+import PaginationLinks from '../components/pagination-links';
 
 const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
   data,
@@ -29,28 +30,12 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
           <em>{date}</em>
         </div>
         <MDXRenderer>{body}</MDXRenderer>
-        <p>
-          {prevPostLink && prevPostTitle && (
-            <Link to={prevPostLink}>
-              {prevPostTitle}{' '}
-              <span role="img" aria-label="point-left">
-                👈{' '}
-              </span>
-              Previous
-            </Link>
-          )}
-        </p>
-        <p>
-          {nextPostLink && nextPostTitle && (
-            <Link to={nextPostLink}>
-              {nextPostTitle}{' '}
-              <span role="img" aria-label="point-left">
-                👉{' '}
-              </span>
-              Next
-            </Link>
-          )}
-        </p>
+        <PaginationLinks
+          nextPageLink={nextPostLink}
+          nextPageText={nextPostTitle}
+          prevPageLink={prevPostLink}
+          prevPageText={prevPostTitle}
+        />
       </div>
     </>
   );

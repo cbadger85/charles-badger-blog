@@ -8,8 +8,9 @@ import {
   HeadingFive,
   HeadingSix,
 } from './heading';
-import { Paragraph, Bold, Italic } from './text';
+import { Paragraph, Bold, Italic, AnchorTag } from './text';
 import Image from './image';
+import BlockQuote from './block-quote';
 
 const preToCodeBlock: React.FC<PreToCodBlockProps> = preProps => {
   if (preProps.children?.props?.mdxType === 'code') {
@@ -31,6 +32,8 @@ export const components = {
   em: Italic,
   strong: Bold,
   img: Image,
+  blockquote: BlockQuote,
+  a: AnchorTag,
 };
 
 interface PreToCodBlockProps {
