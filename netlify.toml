@@ -1,5 +1,5 @@
 [build]
-  command = "git submodule update --init --recursive --depth=1 && cd content && git pull && cd .. && yarn build"
+  command = "❯ git submodule update --remote --recursive --depth=1 && yarn build"
   publish = "public"
 [dev]
   command = "yarn start"
