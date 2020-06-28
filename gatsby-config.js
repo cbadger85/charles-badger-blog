@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: 'Charles Badger',
     description: `A development blog where I talk about stuff I'm learning`,
-    author: '@cbadger85',
+    siteUrl: 'https://www.charlesbadger.dev',
+    author: 'Charles Badger',
   },
   plugins: [
     {
@@ -70,5 +71,66 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     // 'gatsby-plugin-feed-mdx', // todo: set this up
+    {
+      resolve: `gatsby-plugin-feed-mdx`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                author
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => ({
+                title: edge.node.frontmatter.title,
+                date: edge.node.frontmatter.date,
+                description: edge.node.excerpt,
+                categories: edge.node.fields.categories,
+                author: site.siteMetadata.author,
+                url:
+                  site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
+                guid:
+                  site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              }));
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt(pruneLength: 250)
+                      html
+                      fields { 
+                        slug
+                        categories
+                      }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'RSS feed for charlesbadger.dev',
+            match: '^/blog/',
+          },
+        ],
+      },
+    },
   ],
 };
