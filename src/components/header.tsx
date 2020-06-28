@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
       >
         <Link to="/" className={styles.headerTitle}>
           <Typography component="h1" heading size="m">
-            {siteTitle}
+            &lt;{siteTitle} /&gt;
           </Typography>
         </Link>
         {isPhone ? <NavMenu /> : <NavList isBar />}
