@@ -1,0 +1,5 @@
+[build]
+  command = "git submodule update --init --recursive --depth=1 && yarn build"
+  publish = "public"
+[dev]
+  command = "yarn start"
