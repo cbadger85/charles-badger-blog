@@ -46,9 +46,19 @@ const Footer = () => {
             <Typography component="h2" bold>
               Links
             </Typography>
-            <Linkedin className={styles.icon} />
-            <GitHub className={styles.icon} />
-            <Rss className={styles.icon} />
+            <a href="https://www.linkedin.com/in/charles-badger/">
+              <Linkedin
+                className={styles.icon}
+                role="img"
+                aria-label="linkedin"
+              />
+            </a>
+            <a href="https://github.com/cbadger85/">
+              <GitHub className={styles.icon} role="img" aria-label="github" />
+            </a>
+            <Link to="/rss.xml">
+              <Rss className={styles.icon} role="img" aria-label="rss" />
+            </Link>
           </div>
         </div>
         <Typography component="p" size="xxs" className={styles.copyright}>
