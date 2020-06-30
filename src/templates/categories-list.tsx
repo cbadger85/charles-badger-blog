@@ -16,7 +16,7 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
 
   return (
     <>
-      <SEO title={pathContext.category} />
+      <SEO title={`${pathContext.category} | charlesbadger.dev`} />
       <ArticleListLayout
         nextPageLink={nextPageLink}
         prevPageLink={prevPageLink}

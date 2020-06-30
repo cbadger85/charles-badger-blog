@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from './typography';
-import styles from './text.module.scss';
 
 export const Paragraph: React.FC = props => (
   <Typography component="p" {...props} />
@@ -15,5 +14,5 @@ export const Bold: React.FC = props => (
 );
 
 export const AnchorTag: React.FC = props => (
-  <Typography component="a" {...props} className={styles.anchor} />
+  <Typography component="a" {...props} link />
 );
