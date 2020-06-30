@@ -23,6 +23,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         default: require.resolve('./src/components/layout.tsx'),

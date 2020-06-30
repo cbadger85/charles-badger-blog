@@ -8,7 +8,10 @@ const {
 exports.createPages = ({ graphql, actions }) =>
   graphql(`
     query {
-      allMdx(sort: { order: ASC, fields: [frontmatter___date] }) {
+      allMdx(
+        sort: { order: ASC, fields: [frontmatter___date] }
+        filter: { frontmatter: { page: { ne: "about" } } }
+      ) {
         edges {
           node {
             fields {

@@ -26,7 +26,7 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
         description={data.mdx.excerpt}
       />
       <div>
-        <Typography component="h1" heading size="xl">
+        <Typography component="h2" heading size="xl">
           {title}
         </Typography>
         <div>
