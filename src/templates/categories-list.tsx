@@ -1,11 +1,10 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
 import ArticleListItem from '../components/article-list-item';
+import ArticleListLayout from '../components/article-list-layout';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
 import { BlogFrontmatter } from '../types/blog-frontmatter';
-import PaginationLinks from '../components/pagination-links';
-import ArticleListLayout from '../components/article-list-layout';
 
 const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   data,

@@ -8,7 +8,7 @@ const AboutPage: React.FC<PageProps<PageData>> = ({ data }) => {
   return (
     <>
       <SEO title="About | charlesbadger.dev" description={data.mdx.excerpt} />
-      <Typography component="h2" heading size="xl">
+      <Typography component="h1" heading size="xl">
         About Me
       </Typography>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>

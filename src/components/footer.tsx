@@ -19,8 +19,8 @@ const Footer = () => {
             charlesbadger.dev
           </Typography>
         </Link>
-        <nav className={styles.footerNav}>
-          <Typography component="h3" bold>
+        <nav className={styles.footerNav} aria-label="Secondary">
+          <Typography component="span" bold>
             Navigation
           </Typography>
           <ul className={styles.footerNavList}>
@@ -42,8 +42,8 @@ const Footer = () => {
           </ul>
         </nav>
         <div className={styles.iconContainer}>
-          <div className={styles.icons}>
-            <Typography component="h3" bold>
+          <section className={styles.icons} aria-labelledby="footer-links">
+            <Typography component="span" bold id="footer-links">
               Links
             </Typography>
             <a href="https://www.linkedin.com/in/charles-badger/">
@@ -59,7 +59,7 @@ const Footer = () => {
             <Link to="/rss.xml">
               <Rss className={styles.icon} role="img" aria-label="rss" />
             </Link>
-          </div>
+          </section>
         </div>
         <Typography component="p" size="xxs" className={styles.copyright}>
           © {getCopyrightYear()} Charles Badger. All rights reserved.

@@ -25,8 +25,8 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
         title={`${title} | charlesbadger.dev`}
         description={data.mdx.excerpt}
       />
-      <div>
-        <Typography component="h2" heading size="xl">
+      <article>
+        <Typography component="h1" heading size="xl">
           {title}
         </Typography>
         <div>
@@ -39,7 +39,7 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
           prevPageLink={prevPostLink}
           prevPageText={prevPostTitle}
         />
-      </div>
+      </article>
     </>
   );
 };
