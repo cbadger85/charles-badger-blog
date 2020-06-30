@@ -20,7 +20,7 @@ const Footer = () => {
           </Typography>
         </Link>
         <nav className={styles.footerNav}>
-          <Typography component="h2" bold>
+          <Typography component="h3" bold>
             Navigation
           </Typography>
           <ul className={styles.footerNavList}>
@@ -43,7 +43,7 @@ const Footer = () => {
         </nav>
         <div className={styles.iconContainer}>
           <div className={styles.icons}>
-            <Typography component="h2" bold>
+            <Typography component="h3" bold>
               Links
             </Typography>
             <a href="https://www.linkedin.com/in/charles-badger/">
