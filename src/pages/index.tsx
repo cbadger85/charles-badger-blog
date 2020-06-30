@@ -10,7 +10,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Home | charlesbadger.dev" />
       <Typography component="h1" heading size="l">
         Most Recent Articles
       </Typography>
