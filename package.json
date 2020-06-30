@@ -23,7 +23,7 @@
     "gatsby-remark-responsive-iframe": "^2.4.5",
     "gatsby-remark-smartypants": "^2.3.6",
     "gatsby-source-filesystem": "^2.3.8",
-    "gatsby-transformer-sharp": "^2.5.3",
+    "gatsby-transformer-sharp": "^2.5.7",
     "lodash": "^4.17.15",
     "node-sass": "^4.14.1",
     "prism-react-renderer": "^1.1.1",
