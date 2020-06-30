@@ -37,7 +37,11 @@ export const query = graphql`
         title
       }
     }
-    allMdx(sort: { order: DESC, fields: frontmatter___date }, limit: 10) {
+    allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { page: { ne: "about" } } }
+      limit: 10
+    ) {
       totalCount
       edges {
         node {

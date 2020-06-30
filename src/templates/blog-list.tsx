@@ -52,6 +52,7 @@ export const query = graphql`
     }
     allMdx(
       sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { page: { ne: "about" } } }
       limit: $limit
       skip: $skip
     ) {

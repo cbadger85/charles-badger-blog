@@ -15,10 +15,13 @@
 
 .articleItem {
   margin: 1rem 0;
-  padding: 1rem 0;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.8);
   transition: transform 0.1s ease-in-out;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .articleItem:hover {
