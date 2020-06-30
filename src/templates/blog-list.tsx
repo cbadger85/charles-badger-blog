@@ -16,7 +16,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
 
   return (
     <>
-      <SEO title="Blog" />
+      <SEO title="Blog | charlesbadger.dev" />
       <ArticleListLayout
         nextPageLink={nextPageLink}
         prevPageLink={prevPageLink}
