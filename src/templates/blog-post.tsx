@@ -21,7 +21,10 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
 
   return (
     <>
-      <SEO title={title} description={data.mdx.excerpt} />
+      <SEO
+        title={`${title} | charlesbadger.dev`}
+        description={data.mdx.excerpt}
+      />
       <div>
         <Typography component="h1" heading size="xl">
           {title}

@@ -69,3 +69,17 @@
 .lowercase {
   text-transform: lowercase;
 }
+
+.anchor {
+  text-decoration: underline;
+  text-decoration-color: dodgerblue;
+  color: royalblue;
+
+  &:visited {
+    color: royalblue;
+  }
+
+  &:hover {
+    color: dodgerblue;
+  }
+}
