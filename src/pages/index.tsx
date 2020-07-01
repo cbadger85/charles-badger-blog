@@ -1,11 +1,10 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import ArticleListItem from '../components/article-list-item';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
 
-const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({ data }) => {
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const posts = data.allMdx.edges;
 
   return (
@@ -62,7 +61,7 @@ export const query = graphql`
   }
 `;
 
-interface IndexPageProps<T> {
+interface IndexPageProps extends PageProps {
   data: {
     allMdx: {
       edges: {
@@ -70,7 +69,11 @@ interface IndexPageProps<T> {
           id: string;
           excerpt: string;
           fields: { slug: string; categories: string[] };
-          frontmatter: T;
+          frontmatter: {
+            title: string;
+            date: string;
+            tags: string[];
+          };
         };
       }[];
     };
