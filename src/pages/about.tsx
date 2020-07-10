@@ -11,7 +11,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
     <>
       <SEO title="About | charlesbadger.dev" description={data.mdx.excerpt} />
       <Typography component="h1" heading size="xl">
-        About Me
+        {data.mdx.frontmatter.title}
       </Typography>
       <CartoonMe className={styles.aboutMe} />
       <div>
@@ -26,6 +26,9 @@ export default AboutPage;
 export const query = graphql`
   query AboutPageQuery {
     mdx(frontmatter: { page: { eq: "about" } }) {
+      frontmatter {
+        title
+      }
       id
       body
       excerpt
@@ -38,6 +41,7 @@ interface AboutPageProps extends PageProps {
     mdx: {
       excerpt: string;
       body: string;
+      frontmatter: { title: string };
     };
   };
 }
