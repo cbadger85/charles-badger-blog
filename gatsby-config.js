@@ -3,7 +3,7 @@ const { IMAGE_MAX_WIDTH } = require('./gatsby/constants');
 module.exports = {
   siteMetadata: {
     title: 'Charles Badger',
-    description: `A development blog where I talk about stuff I'm learning`,
+    description: "A web development blog where I talk about stuff I'm learning",
     siteUrl: 'https://www.charlesbadger.dev',
     author: 'Charles Badger',
   },
@@ -65,13 +65,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `charlesbadger.dev`,
+        description:
+          "A web development blog where I talk about stuff I'm learning",
+        lang: 'en',
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000`,
+        theme_color: `#FFF`,
         display: `minimal-ui`,
-        icon: `images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
