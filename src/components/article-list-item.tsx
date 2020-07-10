@@ -8,7 +8,7 @@ import { navigate } from 'gatsby';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const CategoryPills: React.FC<{ categories: string[] }> = ({ categories }) => (
-  <div className={styles.pillWrapper}>
+  <section className={styles.pillWrapper} aria-label="Categories">
     {categories.map(category => (
       <Link
         key={category}
@@ -18,7 +18,7 @@ const CategoryPills: React.FC<{ categories: string[] }> = ({ categories }) => (
         <Pill className={styles.pill}>{category}</Pill>
       </Link>
     ))}
-  </div>
+  </section>
 );
 
 const ArticleListItem: React.FC<ArticleListItemProps> = ({
@@ -45,7 +45,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   };
 
   return (
-    <div
+    <section
       className={styles.cardWrapper}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
@@ -85,7 +85,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
           {!isPhone && <CategoryPills categories={categories} />}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

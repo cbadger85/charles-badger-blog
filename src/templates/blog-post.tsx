@@ -1,15 +1,11 @@
-import { graphql, Link } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
+import PaginationLinks from '../components/pagination-links';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
-import PaginationLinks from '../components/pagination-links';
 
-const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
-  data,
-  pathContext,
-}) => {
+const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
   const { title, date } = data.mdx.frontmatter;
   const body = data.mdx.body;
   const {
@@ -25,8 +21,8 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
         title={`${title} | charlesbadger.dev`}
         description={data.mdx.excerpt}
       />
-      <div>
-        <Typography component="h2" heading size="xl">
+      <article>
+        <Typography component="h1" heading size="xl">
           {title}
         </Typography>
         <div>
@@ -39,10 +35,12 @@ const Template: React.FC<PageData<BlogFrontmatter, BlogPathContext>> = ({
           prevPageLink={prevPostLink}
           prevPageText={prevPostTitle}
         />
-      </div>
+      </article>
     </>
   );
 };
+
+export default BlogPostPage;
 
 export const postQuery = graphql`
   query($slug: String!) {
@@ -58,22 +56,22 @@ export const postQuery = graphql`
   }
 `;
 
-interface PageData<T, U> {
+interface BlogPostPageProps extends PageProps {
   data: {
     mdx: {
       body: string;
       excerpt: string;
-      frontmatter: T;
+      frontmatter: {
+        title: string;
+        date: string;
+        tags: string[];
+      };
     };
   };
-  pathContext: U;
+  pathContext: {
+    prevPostLink?: string;
+    prevPostTitle?: string;
+    nextPostLink?: string;
+    nextPostTitle?: string;
+  };
 }
-
-interface BlogPathContext {
-  prevPostLink?: string;
-  prevPostTitle?: string;
-  nextPostLink?: string;
-  nextPostTitle?: string;
-}
-
-export default Template;

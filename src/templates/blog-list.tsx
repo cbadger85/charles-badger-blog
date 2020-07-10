@@ -1,15 +1,11 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import ArticleListItem from '../components/article-list-item';
 import ArticleListLayout from '../components/article-list-layout';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
 
-const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
-  data,
-  pathContext,
-}) => {
+const BlogListPage: React.FC<BlogListPageProps> = ({ data, pathContext }) => {
   const posts = data.allMdx.edges;
 
   const { nextPageLink, prevPageLink } = pathContext;
@@ -41,7 +37,7 @@ const IndexPage: React.FC<IndexPageProps<BlogFrontmatter>> = ({
   );
 };
 
-export default IndexPage;
+export default BlogListPage;
 
 export const query = graphql`
   query ListPageQuery($skip: Int!, $limit: Int!) {
@@ -52,6 +48,7 @@ export const query = graphql`
     }
     allMdx(
       sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { page: { ne: "about" } } }
       limit: $limit
       skip: $skip
     ) {
@@ -75,7 +72,7 @@ export const query = graphql`
   }
 `;
 
-interface IndexPageProps<T> {
+interface BlogListPageProps extends PageProps {
   data: {
     allMdx: {
       edges: {
@@ -83,7 +80,10 @@ interface IndexPageProps<T> {
           id: string;
           excerpt: string;
           fields: { slug: string; categories: string[] };
-          frontmatter: T;
+          frontmatter: {
+            title: string;
+            date: string;
+          };
         };
       }[];
     };

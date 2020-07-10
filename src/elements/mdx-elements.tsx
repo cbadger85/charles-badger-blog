@@ -11,6 +11,7 @@ import {
 import { Paragraph, Bold, Italic, AnchorTag } from './text';
 import Image from './image';
 import BlockQuote from './block-quote';
+import { UnorderedList, OrderedList, ListItem } from './list-elements';
 
 const preToCodeBlock: React.FC<PreToCodBlockProps> = preProps => {
   if (preProps.children?.props?.mdxType === 'code') {
@@ -34,6 +35,9 @@ export const components = {
   img: Image,
   blockquote: BlockQuote,
   a: AnchorTag,
+  ul: UnorderedList,
+  ol: OrderedList,
+  li: ListItem,
 };
 
 interface PreToCodBlockProps {

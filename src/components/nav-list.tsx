@@ -6,9 +6,9 @@ import Typography from '../elements/typography';
 
 const NavList: React.FC<NavListProps> = ({ isBar, onClick }) => {
   return (
-    <nav>
+    <nav aria-label="Primary">
       {!isBar && (
-        <Typography component="h1" size="xl" heading id="navigation-menu">
+        <Typography component="span" size="xl" heading id="navigation-menu">
           Menu
         </Typography>
       )}

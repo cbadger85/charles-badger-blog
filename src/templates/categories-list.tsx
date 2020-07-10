@@ -1,13 +1,11 @@
-import { graphql, Link } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import ArticleListItem from '../components/article-list-item';
+import ArticleListLayout from '../components/article-list-layout';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
-import { BlogFrontmatter } from '../types/blog-frontmatter';
-import PaginationLinks from '../components/pagination-links';
-import ArticleListLayout from '../components/article-list-layout';
 
-const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
+const CategoryListPage: React.FC<CategoryListPageProps> = ({
   data,
   pathContext,
 }) => {
@@ -41,7 +39,7 @@ const PostsByTagPage: React.FC<PostsByTagPageProps<BlogFrontmatter>> = ({
   );
 };
 
-export default PostsByTagPage;
+export default CategoryListPage;
 
 export const query = graphql`
   query TagPageQuery($skip: Int!, $limit: Int!, $category: String!) {
@@ -76,7 +74,7 @@ export const query = graphql`
   }
 `;
 
-interface PostsByTagPageProps<T> {
+interface CategoryListPageProps extends PageProps {
   data: {
     allMdx: {
       edges: {
@@ -84,7 +82,11 @@ interface PostsByTagPageProps<T> {
           id: string;
           excerpt: string;
           fields: { slug: string; categories: string[] };
-          frontmatter: T;
+          frontmatter: {
+            title: string;
+            date: string;
+            tags: string[];
+          };
         };
       }[];
     };

@@ -19,7 +19,7 @@ const NavMenu = () => {
       <button
         className={styles.hamburgerMenu}
         onClick={isOpen ? handleClose : handleOpen}
-        aria-label="close"
+        aria-label={isOpen ? 'close' : 'menu'}
         ref={buttonRef}
       >
         <span
