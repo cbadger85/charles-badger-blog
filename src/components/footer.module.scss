@@ -1,6 +1,6 @@
 .footer {
-  background-color: black;
-  color: white;
+  background-color: var(--footer-background-color);
+  color: var(--footer-text-color);
   width: 100vw;
 }
 
@@ -16,14 +16,17 @@
     'copyright copyright copyright copyright nav links';
 }
 
+.homePageLinkContainer {
+  grid-area: title;
+}
+
 .homepageLink {
   text-decoration: none;
   display: block;
   text-transform: uppercase;
-  grid-area: title;
 
   p {
-    color: white;
+    color: var(--footer-homepage-link-color);
   }
 }
 
@@ -54,7 +57,7 @@
 
 .footerNavLink {
   text-decoration: none;
-  color: white;
+  color: var(--footer-nav-link-color);
 
   &:hover {
     text-decoration: underline;
@@ -63,6 +66,10 @@
   p {
     width: fit-content;
   }
+}
+
+.footerNavText {
+  color: var(--footer-nav-link-color);
 }
 
 .iconContainer {

@@ -1,6 +1,11 @@
 .image {
   display: block;
   max-width: 90vw;
+  /************************************************************
+  This is to fix a bug in [gatsby-remark-images]. should be
+  removed when bug is fixed.
+  ***********************************************************/
+  box-shadow: transparent 0px 0px 0px 400px inset !important;
 
   /************************************************************
   This style is mirrored in the 'gatsby-remark-images' plugin 

@@ -18,9 +18,7 @@ const Pill: React.FC<PillProps> = ({ children, className }) => {
         pillColor[children] || styles.pillBlack
       )}
     >
-      <Typography size="xs" bold>
-        {children}
-      </Typography>
+      {children}
     </div>
   );
 };

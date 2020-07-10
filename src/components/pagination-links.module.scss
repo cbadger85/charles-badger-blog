@@ -24,13 +24,13 @@
 
 .link {
   text-decoration: none;
-  color: gray;
+  color: var(--nav-link-color);
   font-weight: bold;
   display: flex;
   align-items: center;
 
   &:hover {
-    color: black;
+    color: var(--nav-link-color-hover);
     transform: scale(1.01);
   }
 }

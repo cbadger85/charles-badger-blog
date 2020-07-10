@@ -26,7 +26,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
           {title}
         </Typography>
         <div>
-          <em>{date}</em>
+          <Typography size="s" italic subHeading>
+            {date}
+          </Typography>
         </div>
         <MDXRenderer>{body}</MDXRenderer>
         <PaginationLinks

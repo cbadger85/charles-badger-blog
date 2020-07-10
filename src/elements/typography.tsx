@@ -23,6 +23,7 @@ const Typography: React.FC<TypographyProps> = ({
   children,
   className,
   transform,
+  subHeading,
   ...props
 }) => {
   const Component: React.ElementType = component;
@@ -37,6 +38,7 @@ const Typography: React.FC<TypographyProps> = ({
     heading && styles.heading,
     link && styles.anchor,
     transform && styles[transform],
+    subHeading && styles.subHeading,
     styles.typography
   );
 
@@ -70,6 +72,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   heading?: boolean;
   transform?: 'uppercase' | 'lowercase' | 'capitalize';
   link?: boolean;
+  subHeading?: boolean;
 }
 
 export default Typography;

@@ -1,6 +1,50 @@
 :root {
   --max-width: 960px;
   --max-height: 100vh;
+
+  /* light mode colors */
+  // --background-color: white;
+  // --header-background-color: white;
+  // --heading-color: rgba(0, 0, 0, 0.8);
+  // --text-color: rgba(0, 0, 0, 0.8);
+  // --default-pill-color: black;
+  // --default-pill-color-hover: rgba(0, 0, 0, 0.8);
+  // --default-pill-text-color: white;
+  // --nav-link-color: grey;
+  // --nav-link-color-hover: black;
+  // --footer-background-color: black;
+  // --footer-text-color: white;
+  // --footer-homepage-link-color: white;
+  // --footer-nav-link-color: white;
+  // --hamburger-menu-color: rgba(0, 0, 0, 0.7);
+  // --blockquote-background: #f9f9f9;
+  // --blockquote-bar: #ccc;
+  // --blockquote-text-color: black;
+  // --link-color: royalblue;
+  // --link-hover-color: dodgerblue;
+  // --link-underline-color: dodgerblue;
+
+  /* dark mode colors */
+  --background-color: black;
+  --header-background-color: black;
+  --heading-color: white;
+  --text-color: white;
+  --default-pill-color: white;
+  --default-pill-color-hover: grey;
+  --default-pill-text-color: black;
+  --nav-link-color: grey;
+  --nav-link-color-hover: white;
+  --footer-background-color: white;
+  --footer-text-color: black;
+  --footer-homepage-link-color: black;
+  --footer-nav-link-color: black;
+  --hamburger-menu-color: white;
+  --blockquote-background: rgb(34, 34, 34);
+  --blockquote-bar-color: rgba(255, 255, 255, 0.3);
+  --blockquote-text-color: white;
+  --link-color: royalblue;
+  --link-hover-color: dodgerblue;
+  --link-underline-color: dodgerblue;
 }
 
 html {
@@ -38,4 +82,6 @@ body {
   -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+
+  background-color: var(--background-color);
 }

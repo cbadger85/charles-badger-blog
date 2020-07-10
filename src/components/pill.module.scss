@@ -1,22 +1,23 @@
 $react-pill-color: #000000cc;
 $javascript-pill-color: gold;
 $typescript-pill-color: dodgerblue;
-$black-pill-color: black;
 
 .pill {
   padding: 0.1rem 1rem;
   border-radius: 25px;
   display: flex;
   align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .pillBlack {
-  background-color: $black-pill-color;
-  color: white;
+  background-color: var(--default-pill-color);
+  color: var(--default-pill-text-color);
 }
 
 .pillBlack:hover {
-  background-color: lighten($color: $black-pill-color, $amount: 15);
+  background-color: var(--default-pill-color-hover);
 }
 
 .pillReact {

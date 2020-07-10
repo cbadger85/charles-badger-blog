@@ -1,6 +1,7 @@
 .blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
+  background: var(--blockquote-background);
+  border-left: 10px solid var(--blockquote-bar-color);
+  color: var(--blockquote-text-color);
   margin: 1.5em 1rem;
   padding: 0.5em 0.8rem;
   font-style: italic;
