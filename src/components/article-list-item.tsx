@@ -43,7 +43,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
             <Typography
               component="h2"
               bold
-              size={isPhone ? 's' : 'm'}
+              size="m"
               color="tertiary"
               bottomSpacing="s"
             >
