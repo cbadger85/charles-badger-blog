@@ -99,14 +99,13 @@ export const getInitialColorTheme = () => {
   return 'light';
 };
 
-// Typescript ignored for this function so it can be stringified in the
-// gatsby-ssr file and ran on the client.
-// @ts-ignore
-export const setCssCustomProperties = theme => {
+export const setCssCustomProperties = (theme: ColorTheme) => {
   const root = window.document.documentElement;
   Object.keys(colors).forEach(property => {
-    // @ts-ignore
-    root.style.setProperty(property, colors[property][theme]);
+    root.style.setProperty(
+      property,
+      colors[property as keyof typeof colors][theme]
+    );
   });
 };
 

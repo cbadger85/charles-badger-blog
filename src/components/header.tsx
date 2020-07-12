@@ -12,7 +12,7 @@ import ColorThemeToggle from './color-theme-toggle';
 // const pluckTags = (posts: MdxEdges[]): string[] =>
 //   Array.from(new Set(posts.flatMap(post => post.node.fields.tags)));
 
-const MINIMUM_SCROLL = 50;
+const MINIMUM_SCROLL = 15;
 
 const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
   // const data = useStaticQuery<TagQueryData>(graphql`
