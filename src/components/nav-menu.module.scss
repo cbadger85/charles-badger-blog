@@ -4,14 +4,30 @@
   @include clear-button-defaults;
   width: 30px;
   height: 25px;
-  position: relative;
-  transform: rotate(0deg);
   cursor: pointer;
-  z-index: 10;
-  padding: 0px;
-  outline: hidden;
   background-color: transparent;
-  transform: translateY(0.1rem);
+  transform: rotate(0deg) translateY(0.1rem);
+  position: relative;
+  z-index: 10;
+}
+
+.menuButtonContent {
+  width: 30px;
+  height: 25px;
+}
+
+:focus > .menuButtonContent {
+  outline: auto;
+  outline-color: blue;
+}
+
+.hamburgerMenu:not(:-moz-focusring):focus > .menuButtonContent {
+  outline: none;
+}
+
+.hamburgerMenu:focus,
+.menuButtonContent:focus {
+  outline: none;
 }
 
 .menuBar {

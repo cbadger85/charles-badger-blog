@@ -12,7 +12,7 @@ const BlogListPage: React.FC<BlogListPageProps> = ({ data, pathContext }) => {
 
   return (
     <>
-      <SEO title="Blog | charlesbadger.dev" />
+      <SEO title="Blog" />
       <ArticleListLayout
         nextPageLink={nextPageLink}
         prevPageLink={prevPageLink}

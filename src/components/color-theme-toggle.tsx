@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Typography from '../elements/typography';
 import { ThemeContext } from '../utils/color-theme';
 import styles from './color-theme-toggle.module.scss';
 

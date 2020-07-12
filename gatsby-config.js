@@ -2,7 +2,7 @@ const { IMAGE_MAX_WIDTH } = require('./gatsby/constants');
 
 module.exports = {
   siteMetadata: {
-    title: 'Charles Badger',
+    title: 'charlesbadger.dev',
     description: "A web development blog where I talk about stuff I'm learning",
     siteUrl: 'https://www.charlesbadger.dev',
     author: 'Charles Badger',

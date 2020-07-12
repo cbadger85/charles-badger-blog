@@ -22,55 +22,58 @@ const NavMenu = () => {
         onClick={isOpen ? handleClose : handleOpen}
         aria-label={isOpen ? 'close' : 'menu'}
         ref={buttonRef}
+        tabIndex={0}
       >
-        <span
-          className={getClasses(
-            styles.menuBar,
-            isOpen && styles.menuBarOpen,
-            styles.topLeft,
-            isOpen && styles.topLeftOpen
-          )}
-        />
-        <span
-          className={getClasses(
-            styles.menuBar,
-            isOpen && styles.menuBarOpen,
-            styles.topRight,
-            isOpen && styles.topRightOpen
-          )}
-        />
-        <span
-          className={getClasses(
-            styles.menuBar,
-            isOpen && styles.menuBarOpen,
-            styles.middleLeft,
-            isOpen && styles.middleLeftOpen
-          )}
-        />
-        <span
-          className={getClasses(
-            styles.menuBar,
-            isOpen && styles.menuBarOpen,
-            styles.middleRight,
-            isOpen && styles.middleRightOpen
-          )}
-        />
-        <span
-          className={getClasses(
-            styles.menuBar,
-            isOpen && styles.menuBarOpen,
-            styles.bottomLeft,
-            isOpen && styles.bottomLeftOpen
-          )}
-        />
-        <span
-          className={getClasses(
-            styles.menuBar,
-            isOpen && styles.menuBarOpen,
-            styles.bottomRight,
-            isOpen && styles.bottomRightOpen
-          )}
-        />
+        <div className={styles.menuButtonContent} tabIndex={-1}>
+          <span
+            className={getClasses(
+              styles.menuBar,
+              isOpen && styles.menuBarOpen,
+              styles.topLeft,
+              isOpen && styles.topLeftOpen
+            )}
+          />
+          <span
+            className={getClasses(
+              styles.menuBar,
+              isOpen && styles.menuBarOpen,
+              styles.topRight,
+              isOpen && styles.topRightOpen
+            )}
+          />
+          <span
+            className={getClasses(
+              styles.menuBar,
+              isOpen && styles.menuBarOpen,
+              styles.middleLeft,
+              isOpen && styles.middleLeftOpen
+            )}
+          />
+          <span
+            className={getClasses(
+              styles.menuBar,
+              isOpen && styles.menuBarOpen,
+              styles.middleRight,
+              isOpen && styles.middleRightOpen
+            )}
+          />
+          <span
+            className={getClasses(
+              styles.menuBar,
+              isOpen && styles.menuBarOpen,
+              styles.bottomLeft,
+              isOpen && styles.bottomLeftOpen
+            )}
+          />
+          <span
+            className={getClasses(
+              styles.menuBar,
+              isOpen && styles.menuBarOpen,
+              styles.bottomRight,
+              isOpen && styles.bottomRightOpen
+            )}
+          />
+        </div>
       </button>
       <div
         role="dialog"
