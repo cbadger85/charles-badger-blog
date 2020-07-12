@@ -1,0 +1,67 @@
+.toggleContainer {
+  display: flex;
+  align-items: center;
+
+  & input[type='checkbox']:checked + .toggle::before {
+    transform: translateX(1rem);
+    background-color: white;
+  }
+
+  & input[type='checkbox']:checked + .toggle {
+    background-color: #000839;
+  }
+
+  & input[type='checkbox']:checked + .toggle::after {
+    transform: translateX(1.25rem) scale(1);
+    transition: all 0.3s;
+  }
+
+  & input[type='checkbox']:checked:focus + .toggle {
+    outline: auto;
+    outline-color: blue;
+  }
+
+  & input[type='checkbox']:focus + .toggle {
+    outline: auto;
+    outline-color: blue;
+  }
+
+  & input[type='checkbox'] {
+    opacity: 0;
+  }
+}
+
+.toggle {
+  position: relative;
+  cursor: pointer;
+  content: '';
+  width: 2rem;
+  height: 1rem;
+  background-color: #000839;
+  border-radius: 2.5rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    top: 0rem;
+    left: -0.35rem;
+    transform: scale(0.0001);
+    background-color: #000839;
+    transition: all 0.3s;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background-color: gold;
+    top: 0.05rem;
+    left: 0.05rem;
+    transition: all 0.3s;
+  }
+}
