@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import Typography from '../elements/typography';
 import { ThemeContext } from '../utils/color-theme';
 import styles from './color-theme-toggle.module.scss';
 
-const ColorThemeToggle = () => {
+const ColorThemeToggle: React.FC = () => {
   const { colorTheme, setColorTheme } = useContext(ThemeContext);
 
   const handleToggle = () => {

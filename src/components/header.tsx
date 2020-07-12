@@ -64,8 +64,10 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
             &lt;{siteTitle} /&gt;
           </Typography>
         </Link>
-        <ColorThemeToggle />
-        {isPhone ? <NavMenu /> : <NavList isBar />}
+        <div className={styles.themeToggleAndNav}>
+          {!isPhone && <ColorThemeToggle />}
+          {isPhone ? <NavMenu /> : <NavList isBar />}
+        </div>
       </div>
     </header>
   );
