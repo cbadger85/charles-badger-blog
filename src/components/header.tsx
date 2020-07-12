@@ -37,6 +37,10 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
   const isPhone = useMediaQuery(570);
 
   useEffect(() => {
+    setIsFaded(window.scrollY > MINIMUM_SCROLL);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = throttle(() => {
       setIsFaded(window.scrollY > MINIMUM_SCROLL);
     }, 250);

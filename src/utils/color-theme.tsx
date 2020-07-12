@@ -57,8 +57,8 @@ export const colors = {
     light: '#181818',
     dark: '#f5f7fa',
   },
-  '--block-quote-background': {
-    light: '#cbd2d9',
+  '--blockquote-background': {
+    light: '#e4e7eb',
     dark: '#323f4b',
   },
   '--blockquote-bar-color': {
