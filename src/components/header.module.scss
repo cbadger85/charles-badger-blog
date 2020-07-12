@@ -10,7 +10,7 @@
 }
 
 .headerWrapperScroll {
-  @include shadow-4;
+  @include shadow-2;
   transition: all 0.2s ease-in-out;
   background-color: rgba(var(--header-background-color), 1);
 }

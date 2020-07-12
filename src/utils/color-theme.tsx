@@ -81,6 +81,10 @@ export const colors = {
     light: '#2bb0ed',
     dark: '#53d0fa',
   },
+  '--pagination-link-color': {
+    light: '#e4e7eb',
+    dark: '#3e4c59',
+  },
 };
 
 export const getInitialColorTheme = () => {

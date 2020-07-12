@@ -4,8 +4,12 @@ import { Link } from 'gatsby';
 import Typography from '../elements/typography';
 import { Linkedin, Rss, GitHub } from 'react-feather';
 import { getClasses } from '../utils/get-classes';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const Footer = () => {
+  const isSmallPhone = useMediaQuery(400);
+  const headerSize = isSmallPhone ? 'xs' : 's';
+
   const getCopyrightYear = () => {
     const currentYear = new Date().getFullYear();
 
@@ -17,13 +21,18 @@ const Footer = () => {
       <div className={styles.footerContents}>
         <span className={styles.homePageLinkContainer}>
           <Link to="/" className={styles.homepageLink}>
-            <Typography component="p" bold size="s" heading>
+            <Typography component="p" bold size={headerSize} heading>
               charlesbadger.dev
             </Typography>
           </Link>
         </span>
         <nav className={styles.footerNav} aria-label="Secondary">
-          <Typography component="span" bold className={styles.footerNavText}>
+          <Typography
+            component="span"
+            size={headerSize}
+            bold
+            className={styles.footerNavText}
+          >
             Navigation
           </Typography>
           <ul className={styles.footerNavList}>
@@ -56,6 +65,7 @@ const Footer = () => {
               component="span"
               bold
               id="footer-links"
+              size={headerSize}
               className={getClasses(
                 styles.footerNavText,
                 styles.footerLinksHeading

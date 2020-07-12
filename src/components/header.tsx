@@ -64,7 +64,12 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
         className={getClasses(styles.header, isFaded && styles.headerScroll)}
       >
         <Link to="/" className={styles.headerTitle}>
-          <Typography component="span" heading size="m" color="primary">
+          <Typography
+            component="span"
+            heading
+            size={isPhone ? 's' : 'm'}
+            color="primary"
+          >
             &lt;{siteTitle} /&gt;
           </Typography>
         </Link>
