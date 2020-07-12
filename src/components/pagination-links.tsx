@@ -31,7 +31,7 @@ const PaginationLinks: React.FC<PaginationLinksProps> = ({
       {nextPageLink && (
         <div className={styles.nextLinkContainer}>
           <Link to={nextPageLink} className={styles.link}>
-            {nextPageText}
+            <span className={styles.linkContent}>{nextPageText}</span>
             <i
               role="img"
               aria-label="point-right"

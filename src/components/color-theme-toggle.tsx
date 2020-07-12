@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Typography from '../elements/typography';
 import { ThemeContext } from '../utils/color-theme';
 import styles from './color-theme-toggle.module.scss';
 
@@ -14,17 +15,15 @@ const ColorThemeToggle: React.FC = () => {
   }
 
   return (
-    <div
-      className={styles.toggleContainer}
-      aria-label={`toggle color theme to ${
-        colorTheme === 'light' ? 'dark' : 'light'
-      } mode`}
-    >
+    <div className={styles.toggleContainer}>
       <input
         id="color-theme-toggle"
         type="checkbox"
         checked={colorTheme === 'dark'}
         onChange={e => setColorTheme(e.target.checked ? 'dark' : 'light')}
+        aria-label={`toggle color theme to ${
+          colorTheme === 'light' ? 'dark' : 'light'
+        } mode`}
       />
       <div className={styles.toggle} onClick={handleToggle} />
     </div>
