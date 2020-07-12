@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '../elements/typography';
 import styles from './pill.module.scss';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 
 const pillColor: Record<string, string> = {
   React: styles.pillReact,

@@ -104,10 +104,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--header-background-color);
+  background-color: rgba(var(--header-background-color), 1);
   transform: translateY(-100%);
   transition: 0.25s ease-in-out;
-
   display: flex;
   justify-content: center;
   align-items: center;

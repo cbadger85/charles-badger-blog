@@ -13,7 +13,7 @@ const CategoryPills: React.FC<{ categories: string[] }> = ({ categories }) => (
       <Link
         key={category}
         className={styles.pillLink}
-        to={`/blog/categories/${slugify(category)}/1`}
+        to={`/blog/categories/${slugify(category.toLowerCase())}/1`}
       >
         <Pill className={styles.pill}>{category}</Pill>
       </Link>
@@ -57,7 +57,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
               component="h2"
               bold
               size={isPhone ? 's' : 'm'}
-              className={styles.articleTitle}
+              color="secondary"
             >
               {title}
             </Typography>

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { FocusOn } from 'react-focus-on';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 import NavList from './nav-list';
 import styles from './nav-menu.module.scss';
 

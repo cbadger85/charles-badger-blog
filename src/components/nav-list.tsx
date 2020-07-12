@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './nav-list.module.scss';
 import { Link } from 'gatsby';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 import Typography from '../elements/typography';
 
 const NavList: React.FC<NavListProps> = ({ isBar, onClick }) => {

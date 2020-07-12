@@ -1,5 +1,5 @@
 import React, { ImgHTMLAttributes } from 'react';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 import styles from './image.module.scss';
 import { IMAGE_MAX_WIDTH } from '../../gatsby/constants';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './pagination-links.module.scss';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 
 const PaginationLinks: React.FC<PaginationLinksProps> = ({
   prevPageLink,

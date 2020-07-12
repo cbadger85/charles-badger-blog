@@ -3,48 +3,52 @@
   --max-height: 100vh;
 
   /* light mode colors */
-  // --background-color: white;
-  // --header-background-color: white;
-  // --heading-color: rgba(0, 0, 0, 0.8);
-  // --text-color: rgba(0, 0, 0, 0.8);
-  // --default-pill-color: black;
-  // --default-pill-color-hover: rgba(0, 0, 0, 0.8);
-  // --default-pill-text-color: white;
-  // --nav-link-color: grey;
-  // --nav-link-color-hover: black;
-  // --footer-background-color: black;
-  // --footer-text-color: white;
-  // --footer-homepage-link-color: white;
-  // --footer-nav-link-color: white;
-  // --hamburger-menu-color: rgba(0, 0, 0, 0.7);
-  // --blockquote-background: #f9f9f9;
-  // --blockquote-bar: #ccc;
-  // --blockquote-text-color: black;
-  // --link-color: royalblue;
-  // --link-hover-color: dodgerblue;
-  // --link-underline-color: dodgerblue;
+  // --background-color: #f5f7fa;
+  // --header-background-color: 245, 247, 250;
+  // --primary-color: #323f4b;
+  // --secondary-color: #323f4b;
+  // --secondary-color-light: #323f4b;
+  // --tertiary-color: #323f4b;
+  // --text-color: #1f2933;
+  // --default-color: #323f4b;
+  // --nav-link-color: #616e7c;
+  // --nav-link-color-hover: #1f2933;
+  // --footer-background-color: #181818;
+  // --hamburger-menu-color: #181818;
+  // --blockquote-background: #cbd2d9;
+  // --blockquote-bar-color: #7b8794;
+  // --blockquote-text-color: #323f4b;
+  // --link-color: #127fbf;
+  // --link-hover-color: #2bb0ed;
+  // --link-underline-color: #2bb0ed;
 
   /* dark mode colors */
-  --background-color: black;
-  --header-background-color: black;
-  --heading-color: white;
-  --text-color: white;
-  --default-pill-color: white;
-  --default-pill-color-hover: grey;
-  --default-pill-text-color: black;
-  --nav-link-color: grey;
-  --nav-link-color-hover: white;
-  --footer-background-color: white;
-  --footer-text-color: black;
-  --footer-homepage-link-color: black;
-  --footer-nav-link-color: black;
-  --hamburger-menu-color: white;
-  --blockquote-background: rgb(34, 34, 34);
-  --blockquote-bar-color: rgba(255, 255, 255, 0.3);
-  --blockquote-text-color: white;
-  --link-color: royalblue;
-  --link-hover-color: dodgerblue;
-  --link-underline-color: dodgerblue;
+  // --background-color: #1f2933;
+  // --header-background-color: 50, 63, 75;
+  // --primary-color: #b3ecff;
+  // --secondary-color: #da127d;
+  // --secondary-color-light: #e8368f;
+  // --tertiary-color: #fce588;
+  // --default-color: #f5f7fa;
+  // --text-color: #f5f7fa;
+  // --nav-link-color: #cbd2d0;
+  // --nav-link-color-hover: #f5f7fa;
+  // --footer-background-color: #101419;
+  // --hamburger-menu-color: #f5f7fa;
+  // --blockquote-background: #323f4b;
+  // --blockquote-bar-color: #181e25;
+  // --blockquote-text-color: #f5f7fa;
+  // --link-color: #2bb0ed;
+  // --link-hover-color: #53d0fa;
+  // --link-underline-color: #53d0fa;
+
+  /* shared colors */
+  --default-pill-color: hsl(164, 71%, 34%);
+  --default-pill-color-hover: hsl(164, 71%, 38%);
+  --default-pill-text-color: #f5f7fa;
+  --footer-text-color: #f5f7fa;
+  --footer-homepage-link-color: #f5f7fa;
+  --footer-nav-link-color: #f5f7fa;
 }
 
 html {

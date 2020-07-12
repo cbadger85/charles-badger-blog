@@ -8,16 +8,16 @@ import styles from './about.module.scss';
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
-    <>
+    <div className={styles.aboutPage}>
       <SEO title="About | charlesbadger.dev" description={data.mdx.excerpt} />
-      <Typography component="h1" heading size="xl">
+      <Typography component="h1" heading size="xl" color="secondary-light">
         {data.mdx.frontmatter.title}
       </Typography>
       <CartoonMe className={styles.aboutMe} />
       <div>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </div>
-    </>
+    </div>
   );
 };
 

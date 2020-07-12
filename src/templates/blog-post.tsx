@@ -22,7 +22,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
         description={data.mdx.excerpt}
       />
       <article>
-        <Typography component="h1" heading size="xl">
+        <Typography component="h1" heading size="xl" color="secondary-light">
           {title}
         </Typography>
         <div>

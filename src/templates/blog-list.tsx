@@ -18,7 +18,7 @@ const BlogListPage: React.FC<BlogListPageProps> = ({ data, pathContext }) => {
         prevPageLink={prevPageLink}
       >
         <div>
-          <Typography component="h1" heading size="l">
+          <Typography component="h1" heading size="l" color="secondary-light">
             Articles
           </Typography>
           {posts.map(({ node }) => (

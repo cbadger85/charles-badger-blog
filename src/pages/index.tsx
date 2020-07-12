@@ -10,7 +10,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <>
       <SEO title="Home | charlesbadger.dev" />
-      <Typography component="h1" heading size="l">
+      <Typography component="h1" heading size="l" color="secondary-light">
         Most Recent Articles
       </Typography>
       {posts.map(({ node }) => (

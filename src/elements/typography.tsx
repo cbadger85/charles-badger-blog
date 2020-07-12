@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 import styles from './typography.module.scss';
 
 const sizeToClassMap = {
@@ -11,9 +11,18 @@ const sizeToClassMap = {
   xxs: styles.xxs,
 };
 
+const colorToClassMap = {
+  primary: styles.primaryColor,
+  secondary: styles.secondaryColor,
+  'secondary-light': styles.secondaryLightColor,
+  tertiary: styles.tertiaryColor,
+  default: styles.defaultColor,
+};
+
 const Typography: React.FC<TypographyProps> = ({
   component = 'p',
   size = 's',
+  color,
   bold,
   italic,
   strikethrough,
@@ -39,6 +48,7 @@ const Typography: React.FC<TypographyProps> = ({
     link && styles.anchor,
     transform && styles[transform],
     subHeading && styles.subHeading,
+    color && colorToClassMap[color],
     styles.typography
   );
 
@@ -65,6 +75,7 @@ type TypographyComponentType =
 interface TypographyProps extends HTMLAttributes<HTMLElement> {
   component?: TypographyComponentType;
   size?: keyof typeof sizeToClassMap;
+  color?: keyof typeof colorToClassMap;
   bold?: boolean;
   italic?: boolean;
   strikethrough?: boolean;
