@@ -21,17 +21,23 @@ exports.wrapRootElement = ({ element }) => {
 const ColorThemeScriptTag = () => {
   const codeToRunOnClient = `
     (function() {
-      var getInitialColorTheme = ${String(getInitialColorTheme)}
+      var getInitialColorTheme = ${String(getInitialColorTheme)};
       var colorTheme = getInitialColorTheme();
 
-      var colors = ${JSON.stringify(colors)}
+      var colors = ${JSON.stringify(colors)};
 
-      var setCssCustomProperties = ${String(setCssCustomProperties)}
+      var setCssCustomProperties = ${String(setCssCustomProperties)};
       setCssCustomProperties(colorTheme);
-      
+
       window.document.documentElement.style.setProperty('--initial-color-theme', colorTheme);
     })()
-  `;
+  `
+    .split('\n')
+    .map(string => (string.trim().startsWith('//') ? '' : string.trim()))
+    .join(' ')
+    .split(' ')
+    .map(string => string.trim())
+    .join(' ');
 
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
 };
