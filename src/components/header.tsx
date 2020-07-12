@@ -12,7 +12,7 @@ import ColorThemeToggle from './color-theme-toggle';
 // const pluckTags = (posts: MdxEdges[]): string[] =>
 //   Array.from(new Set(posts.flatMap(post => post.node.fields.tags)));
 
-const MINIMUM_SCROLL = 50;
+const MINIMUM_SCROLL = 15;
 
 const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
   // const data = useStaticQuery<TagQueryData>(graphql`
@@ -35,6 +35,10 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
   const [isFaded, setIsFaded] = useState(scrollY > MINIMUM_SCROLL);
 
   const isPhone = useMediaQuery(570);
+
+  useEffect(() => {
+    setIsFaded(window.scrollY > MINIMUM_SCROLL);
+  }, []);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -60,7 +64,12 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
         className={getClasses(styles.header, isFaded && styles.headerScroll)}
       >
         <Link to="/" className={styles.headerTitle}>
-          <Typography component="span" heading size="m" color="primary">
+          <Typography
+            component="span"
+            heading
+            size={isPhone ? 's' : 'm'}
+            color="primary"
+          >
             &lt;{siteTitle} /&gt;
           </Typography>
         </Link>

@@ -6,9 +6,10 @@ export const HeadingOne: React.FC = props => (
     component="h1"
     size="xl"
     heading
+    bottomSpacing="m"
     bold
     {...props}
-    color="secondary"
+    color="tertiary"
   />
 );
 export const HeadingTwo: React.FC = props => (
@@ -16,9 +17,10 @@ export const HeadingTwo: React.FC = props => (
     component="h2"
     size="l"
     heading
+    bottomSpacing="m"
     bold
     {...props}
-    color="secondary"
+    color="tertiary"
   />
 );
 export const HeadingThree: React.FC = props => (
@@ -26,9 +28,10 @@ export const HeadingThree: React.FC = props => (
     component="h3"
     size="m"
     heading
+    bottomSpacing="m"
     bold
     {...props}
-    color="secondary"
+    color="tertiary"
   />
 );
 export const HeadingFour: React.FC = props => (
@@ -36,9 +39,10 @@ export const HeadingFour: React.FC = props => (
     component="h4"
     size="s"
     heading
+    bottomSpacing="m"
     bold
     {...props}
-    color="secondary"
+    color="tertiary"
   />
 );
 export const HeadingFive: React.FC = props => (
@@ -46,9 +50,10 @@ export const HeadingFive: React.FC = props => (
     component="h5"
     size="xs"
     heading
+    bottomSpacing="m"
     bold
     {...props}
-    color="secondary"
+    color="tertiary"
   />
 );
 export const HeadingSix: React.FC = props => (
@@ -56,8 +61,9 @@ export const HeadingSix: React.FC = props => (
     component="h6"
     size="xs"
     heading
+    bottomSpacing="m"
     bold
     {...props}
-    color="secondary"
+    color="tertiary"
   />
 );

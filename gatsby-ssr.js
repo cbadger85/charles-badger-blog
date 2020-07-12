@@ -33,7 +33,7 @@ const ColorThemeScriptTag = () => {
     })()
   `
     .split('\n')
-    .map(string => (string.trim().startsWith('//') ? '' : string.trim()))
+    .map(string => string.trim())
     .join(' ')
     .split(' ')
     .map(string => string.trim())

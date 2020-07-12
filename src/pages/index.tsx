@@ -1,28 +1,58 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import ArticleListItem from '../components/article-list-item';
+import CategoryLinks from '../components/category-links';
+import Pill from '../components/pill';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
+import styles from './index.module.scss';
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const posts = data.allMdx.edges;
 
+  const aboutTitle = data.mdx.frontmatter.title;
+  const aboutText = data.mdx.mdxAST.children
+    .find(child => child.type === 'paragraph')
+    ?.children.find(child => child.type === 'text')?.value;
+
+  const allCategories = Array.from(
+    new Set(posts.flatMap(post => post.node.fields.categories))
+  );
+
   return (
     <>
       <SEO title="Home" />
-      <Typography component="h1" heading size="l" color="secondary-light">
-        Most Recent Articles
-      </Typography>
-      {posts.map(({ node }) => (
-        <ArticleListItem
-          key={node.id}
-          title={node.frontmatter.title}
-          slug={node.fields.slug}
-          date={node.frontmatter.date}
-          categories={node.fields.categories}
-          excerpt={node.excerpt}
-        />
-      ))}
+      <div className={styles.content}>
+        <main>
+          <Typography component="h1" heading size="l" color="secondary-light">
+            Most Recent Articles
+          </Typography>
+          {posts.map(({ node }) => (
+            <ArticleListItem
+              key={node.id}
+              title={node.frontmatter.title}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              categories={node.fields.categories}
+              excerpt={node.excerpt}
+            />
+          ))}
+        </main>
+        <div className={styles.asideContent}>
+          <aside className={styles.aside}>
+            <Typography component="h2" heading size="m" color="tertiary">
+              {aboutTitle}
+            </Typography>
+            <Typography component="p">{aboutText}</Typography>
+          </aside>
+          <aside className={styles.aside}>
+            <Typography component="h2" heading size="m" color="tertiary">
+              Categories
+            </Typography>
+            <CategoryLinks categories={allCategories} />
+          </aside>
+        </div>
+      </div>
     </>
   );
 };
@@ -58,6 +88,12 @@ export const query = graphql`
         }
       }
     }
+    mdx(frontmatter: { page: { eq: "about" } }) {
+      frontmatter {
+        title
+      }
+      mdxAST
+    }
   }
 `;
 
@@ -77,5 +113,22 @@ interface IndexPageProps extends PageProps {
         };
       }[];
     };
+    mdx: {
+      excerpt: string;
+      body: string;
+      mdxAST: MdxAst;
+      frontmatter: { title: string };
+    };
   };
+}
+
+interface MdxAst {
+  type: 'root';
+  children: {
+    type: string;
+    children: {
+      type: string;
+      value: string;
+    }[];
+  }[];
 }

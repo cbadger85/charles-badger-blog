@@ -57,8 +57,8 @@ export const colors = {
     light: '#181818',
     dark: '#f5f7fa',
   },
-  '--block-quote-background': {
-    light: '#cbd2d9',
+  '--blockquote-background': {
+    light: '#e4e7eb',
     dark: '#323f4b',
   },
   '--blockquote-bar-color': {
@@ -81,6 +81,10 @@ export const colors = {
     light: '#2bb0ed',
     dark: '#53d0fa',
   },
+  '--pagination-link-color': {
+    light: '#e4e7eb',
+    dark: '#3e4c59',
+  },
 };
 
 export const getInitialColorTheme = () => {
@@ -99,14 +103,13 @@ export const getInitialColorTheme = () => {
   return 'light';
 };
 
-// Typescript ignored for this function so it can be stringified in the
-// gatsby-ssr file and ran on the client.
-// @ts-ignore
-export const setCssCustomProperties = theme => {
+export const setCssCustomProperties = (theme: ColorTheme) => {
   const root = window.document.documentElement;
   Object.keys(colors).forEach(property => {
-    // @ts-ignore
-    root.style.setProperty(property, colors[property][theme]);
+    root.style.setProperty(
+      property,
+      colors[property as keyof typeof colors][theme]
+    );
   });
 };
 

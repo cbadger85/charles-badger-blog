@@ -3,8 +3,13 @@ import styles from './footer.module.scss';
 import { Link } from 'gatsby';
 import Typography from '../elements/typography';
 import { Linkedin, Rss, GitHub } from 'react-feather';
+import { getClasses } from '../utils/get-classes';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const Footer = () => {
+  const isSmallPhone = useMediaQuery(400);
+  const headerSize = isSmallPhone ? 'xs' : 's';
+
   const getCopyrightYear = () => {
     const currentYear = new Date().getFullYear();
 
@@ -16,33 +21,38 @@ const Footer = () => {
       <div className={styles.footerContents}>
         <span className={styles.homePageLinkContainer}>
           <Link to="/" className={styles.homepageLink}>
-            <Typography component="p" bold size="s" heading>
+            <Typography component="p" bold size={headerSize} heading>
               charlesbadger.dev
             </Typography>
           </Link>
         </span>
         <nav className={styles.footerNav} aria-label="Secondary">
-          <Typography component="span" bold className={styles.footerNavText}>
+          <Typography
+            component="span"
+            size={headerSize}
+            bold
+            className={styles.footerNavText}
+          >
             Navigation
           </Typography>
           <ul className={styles.footerNavList}>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs" className={styles.footerNavText}>
+                <Typography size="xs" className={styles.footerNavText}>
                   Home
                 </Typography>
               </Link>
             </li>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs" className={styles.footerNavText}>
+                <Typography size="xs" className={styles.footerNavText}>
                   Blog
                 </Typography>
               </Link>
             </li>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs" className={styles.footerNavText}>
+                <Typography size="xs" className={styles.footerNavText}>
                   About
                 </Typography>
               </Link>
@@ -55,7 +65,11 @@ const Footer = () => {
               component="span"
               bold
               id="footer-links"
-              className={styles.footerNavText}
+              size={headerSize}
+              className={getClasses(
+                styles.footerNavText,
+                styles.footerLinksHeading
+              )}
             >
               Links
             </Typography>

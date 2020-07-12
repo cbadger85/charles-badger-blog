@@ -1,3 +1,5 @@
+@import '../styles/shadows.scss';
+
 .paginationLinks {
   display: flex;
   justify-content: space-between;
@@ -6,10 +8,6 @@
 
 .onlyNextLinkPaginationLinks {
   justify-content: flex-end;
-}
-
-.linkContainer {
-  width: 400px;
 }
 
 .prevLinkContainer {
@@ -28,10 +26,12 @@
   font-weight: bold;
   display: flex;
   align-items: center;
+  transition: transform 0.2s ease-in-out;
 
   &:hover {
     color: var(--nav-link-color-hover);
     transform: scale(1.01);
+    transition: transform 0.2s ease-in-out;
   }
 }
 
@@ -98,4 +98,35 @@
   height: 4px;
   bottom: 8px;
   background: currentColor;
+}
+
+@media (max-width: 570px) {
+  .paginationLinks {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .prevLinkContainer {
+    margin: 0;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .nextLinkContainer {
+    display: block;
+    margin: 0;
+  }
+
+  .link {
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+    background-color: var(--pagination-link-color);
+    border-radius: 4px;
+    transition: transform 0.2s ease-in-out;
+    @include shadow-2;
+
+    &:hover {
+      transition: transform 0.2s ease-in-out;
+    }
+  }
 }

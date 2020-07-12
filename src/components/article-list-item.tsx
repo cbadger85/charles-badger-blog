@@ -6,20 +6,7 @@ import slugify from 'slugify';
 import Pill from './pill';
 import { navigate } from 'gatsby';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-
-const CategoryPills: React.FC<{ categories: string[] }> = ({ categories }) => (
-  <section className={styles.pillWrapper} aria-label="Categories">
-    {categories.map(category => (
-      <Link
-        key={category}
-        className={styles.pillLink}
-        to={`/blog/categories/${slugify(category.toLowerCase())}/1`}
-      >
-        <Pill className={styles.pill}>{category}</Pill>
-      </Link>
-    ))}
-  </section>
-);
+import CategoryLinks from './category-links';
 
 const ArticleListItem: React.FC<ArticleListItemProps> = ({
   slug,
@@ -57,18 +44,15 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
               component="h2"
               bold
               size={isPhone ? 's' : 'm'}
-              color="secondary"
+              color="tertiary"
+              bottomSpacing="s"
             >
               {title}
             </Typography>
           </Link>
         </div>
         <Typography size="xxs">{date}</Typography>
-        <Typography
-          size={isPhone ? 'xs' : 's'}
-          component="p"
-          className={styles.excerpt}
-        >
+        <Typography size={isPhone ? 'xs' : 's'} component="p">
           {excerpt}
         </Typography>
         <div className={styles.lastRow}>
@@ -82,7 +66,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
               />
             </Typography>
           </Link>
-          {!isPhone && <CategoryPills categories={categories} />}
+          {!isPhone && <CategoryLinks categories={categories} />}
         </div>
       </div>
     </section>

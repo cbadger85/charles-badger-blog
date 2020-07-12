@@ -17,9 +17,7 @@ const PaginationLinks: React.FC<PaginationLinksProps> = ({
       )}
     >
       {prevPageLink && (
-        <div
-          className={getClasses(styles.linkContainer, styles.prevLinkContainer)}
-        >
+        <div className={styles.prevLinkContainer}>
           <Link to={prevPageLink} className={styles.link}>
             <i
               role="img"
@@ -31,9 +29,7 @@ const PaginationLinks: React.FC<PaginationLinksProps> = ({
         </div>
       )}
       {nextPageLink && (
-        <div
-          className={getClasses(styles.linkContainer, styles.nextLinkContainer)}
-        >
+        <div className={styles.nextLinkContainer}>
           <Link to={nextPageLink} className={styles.link}>
             {nextPageText}
             <i

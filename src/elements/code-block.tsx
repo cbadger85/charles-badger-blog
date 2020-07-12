@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/vsDark';
+import darkTheme from 'prism-react-renderer/themes/vsDark';
+import lightTheme from 'prism-react-renderer/themes/github';
 import styles from './code-block.module.scss';
 import { getClasses } from '../utils/get-classes';
+import { ThemeContext } from '../utils/color-theme';
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => {
   const language = className.replace(/language-/, '') as Language;
+  const { colorTheme } = useContext(ThemeContext);
+
+  const modifiedLightTheme = {
+    ...lightTheme,
+    plain: { ...lightTheme.plain, backgroundColor: '#e4e7eb' },
+  };
 
   return (
     <Highlight
       {...defaultProps}
       code={children}
       language={language}
-      theme={theme}
+      theme={colorTheme === 'dark' ? darkTheme : modifiedLightTheme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div

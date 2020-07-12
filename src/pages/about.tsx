@@ -10,7 +10,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
     <div className={styles.aboutPage}>
       <SEO title="About" description={data.mdx.excerpt} />
-      <Typography component="h1" heading size="xl" color="secondary-light">
+      <Typography component="h1" heading size="xl" color="secondary">
         {data.mdx.frontmatter.title}
       </Typography>
       <CartoonMe className={styles.aboutMe} />
@@ -29,9 +29,9 @@ export const query = graphql`
       frontmatter {
         title
       }
-      id
       body
       excerpt
+      mdxAST
     }
   }
 `;
@@ -41,6 +41,7 @@ interface AboutPageProps extends PageProps {
     mdx: {
       excerpt: string;
       body: string;
+      mdxAST: string;
       frontmatter: { title: string };
     };
   };

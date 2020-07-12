@@ -56,11 +56,23 @@
   font-family: 'Open Sans', sans-serif;
   color: var(--primary-color);
   font-weight: 800;
-  margin: 1rem 0 0.5rem 0;
+  margin: 1.5rem 0;
 
   &:first-child {
     margin-top: 0;
   }
+}
+
+.bottomSpacingSmall {
+  margin-bottom: 0.5rem;
+}
+
+.bottomSpacingMedium {
+  margin-bottom: 1rem;
+}
+
+.bottomSpacingLarge {
+  margin-bottom: 2rem;
 }
 
 .uppercase {
@@ -87,11 +99,6 @@
   &:hover {
     color: var(--link-hover-color);
   }
-}
-
-.subHeading {
-  margin-top: -0.8rem;
-  margin-bottom: 0.5rem;
 }
 
 .primaryColor {

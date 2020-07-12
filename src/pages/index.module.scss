@@ -1,0 +1,28 @@
+.content {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.asideContent {
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.aside {
+  flex: 1;
+
+  &:first-child {
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .asideContent {
+    margin-bottom: 0;
+    flex-direction: column;
+  }
+
+  .aside {
+    margin-bottom: 3rem;
+  }
+}
