@@ -4,6 +4,8 @@
   min-height: 100vh;
   min-height: var(--max-height);
   align-items: center;
+  background-color: var(--background-color);
+  transition: background-color 0.2s;
 }
 
 .layout {
