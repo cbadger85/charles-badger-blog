@@ -9,10 +9,12 @@
 
   & input[type='checkbox']:checked + .toggle {
     background-color: #000839;
+    transition: all 0.3s;
   }
 
   & input[type='checkbox']:checked + .toggle::after {
     transform: translateX(1.25rem) scale(1);
+    background-color: #000839;
     transition: all 0.3s;
   }
 
@@ -39,7 +41,8 @@
   content: '';
   width: 2rem;
   height: 1rem;
-  background-color: #000839;
+  background-color: #ccf2ff;
+  transition: all 0.3s;
   border-radius: 2.5rem;
 
   &:after {
@@ -51,7 +54,7 @@
     top: 0rem;
     left: -0.35rem;
     transform: scale(0.0001);
-    background-color: #000839;
+    background-color: #ccf2ff;
     transition: all 0.3s;
   }
 
