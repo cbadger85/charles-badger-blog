@@ -43,5 +43,5 @@ const ColorThemeScriptTag = () => {
 };
 
 exports.onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(<ColorThemeScriptTag />);
+  setPreBodyComponents(<ColorThemeScriptTag key="color-theme-script-tag" />);
 };
