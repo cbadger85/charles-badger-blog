@@ -23,7 +23,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
           {title}
         </Typography>
         <div>
-          <Typography size="s" italic subHeading>
+          <Typography size="s" italic bottomSpacing="s">
             {date}
           </Typography>
         </div>

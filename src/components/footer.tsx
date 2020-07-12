@@ -3,6 +3,7 @@ import styles from './footer.module.scss';
 import { Link } from 'gatsby';
 import Typography from '../elements/typography';
 import { Linkedin, Rss, GitHub } from 'react-feather';
+import { getClasses } from '../utils/get-classes';
 
 const Footer = () => {
   const getCopyrightYear = () => {
@@ -28,21 +29,21 @@ const Footer = () => {
           <ul className={styles.footerNavList}>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs" className={styles.footerNavText}>
+                <Typography size="xs" className={styles.footerNavText}>
                   Home
                 </Typography>
               </Link>
             </li>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs" className={styles.footerNavText}>
+                <Typography size="xs" className={styles.footerNavText}>
                   Blog
                 </Typography>
               </Link>
             </li>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs" className={styles.footerNavText}>
+                <Typography size="xs" className={styles.footerNavText}>
                   About
                 </Typography>
               </Link>
@@ -55,7 +56,10 @@ const Footer = () => {
               component="span"
               bold
               id="footer-links"
-              className={styles.footerNavText}
+              className={getClasses(
+                styles.footerNavText,
+                styles.footerLinksHeading
+              )}
             >
               Links
             </Typography>

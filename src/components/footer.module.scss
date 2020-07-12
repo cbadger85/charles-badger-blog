@@ -72,6 +72,10 @@
   color: var(--footer-nav-link-color);
 }
 
+.footerLinksHeading {
+  margin-bottom: 0.8rem;
+}
+
 .iconContainer {
   margin-left: 1.3rem;
   grid-area: links;
@@ -85,7 +89,7 @@
 }
 
 .icon {
-  margin: 0.3rem 0;
+  margin-bottom: 0.3rem;
   color: white;
 }
 
@@ -107,11 +111,6 @@
     margin: 0;
   }
 
-  .icons {
-    margin-top: 1rem;
-  }
-
-  .footerNav,
   .copyright {
     margin-top: 1.5rem;
   }

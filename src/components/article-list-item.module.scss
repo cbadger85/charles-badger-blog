@@ -1,5 +1,6 @@
 .cardWrapper {
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .articleLink {
@@ -37,10 +38,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.excerpt {
-  margin-top: 0.5rem;
 }
 
 .lastRow {
@@ -97,27 +94,4 @@
     bottom: 10px;
     background: currentColor;
   }
-}
-
-.pillWrapper {
-  display: flex;
-}
-
-.pillLink {
-  text-decoration: none;
-  margin-left: 0.5rem;
-  transition: transform 0.1s ease-in-out;
-
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.1s ease-in-out;
-  }
-}
-
-.pill {
-  position: relative;
 }

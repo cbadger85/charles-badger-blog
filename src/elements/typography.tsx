@@ -19,6 +19,12 @@ const colorToClassMap = {
   default: styles.defaultColor,
 };
 
+const spacingToClassMap = {
+  s: styles.bottomSpacingSmall,
+  m: styles.bottomSpacingMedium,
+  l: styles.bottomSpacingLarge,
+};
+
 const Typography: React.FC<TypographyProps> = ({
   component = 'p',
   size = 's',
@@ -32,7 +38,7 @@ const Typography: React.FC<TypographyProps> = ({
   children,
   className,
   transform,
-  subHeading,
+  bottomSpacing,
   ...props
 }) => {
   const Component: React.ElementType = component;
@@ -47,8 +53,8 @@ const Typography: React.FC<TypographyProps> = ({
     heading && styles.heading,
     link && styles.anchor,
     transform && styles[transform],
-    subHeading && styles.subHeading,
     color && colorToClassMap[color],
+    bottomSpacing && spacingToClassMap[bottomSpacing],
     styles.typography
   );
 
@@ -83,7 +89,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   heading?: boolean;
   transform?: 'uppercase' | 'lowercase' | 'capitalize';
   link?: boolean;
-  subHeading?: boolean;
+  bottomSpacing?: keyof typeof spacingToClassMap;
 }
 
 export default Typography;

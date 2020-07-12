@@ -1,0 +1,35 @@
+.pillWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pillLink {
+  text-decoration: none;
+  transition: transform 0.1s ease-in-out;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out;
+  }
+}
+
+.pill {
+  position: relative;
+}
+
+@media (max-width: 720px) {
+  .pillLink {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

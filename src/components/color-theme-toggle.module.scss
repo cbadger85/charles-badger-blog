@@ -4,7 +4,7 @@
 
   & input[type='checkbox']:checked + .toggle::before {
     transform: translateX(1rem);
-    background-color: white;
+    background-color: #f5f7fa;
   }
 
   & input[type='checkbox']:checked + .toggle {
