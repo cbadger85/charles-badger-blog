@@ -9,7 +9,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   return (
     <>
-      <SEO title="Home | charlesbadger.dev" />
+      <SEO title="Home" />
       <Typography component="h1" heading size="l" color="secondary-light">
         Most Recent Articles
       </Typography>

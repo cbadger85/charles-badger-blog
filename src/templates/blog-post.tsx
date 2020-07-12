@@ -17,10 +17,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
 
   return (
     <>
-      <SEO
-        title={`${title} | charlesbadger.dev`}
-        description={data.mdx.excerpt}
-      />
+      <SEO title={`${title}`} description={data.mdx.excerpt} />
       <article>
         <Typography component="h1" heading size="xl" color="secondary-light">
           {title}

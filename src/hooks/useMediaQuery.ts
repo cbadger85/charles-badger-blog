@@ -12,10 +12,10 @@ export const useMediaQuery = (maxWidth: number) => {
     const handleChange = (e: MediaQueryListEvent) => {
       setIsMatched(e.matches);
     };
-    mediaQueryList?.addEventListener('change', handleChange);
+    mediaQueryList?.addListener(handleChange);
 
     return () => {
-      mediaQueryList?.removeEventListener('change', handleChange);
+      mediaQueryList?.removeListener(handleChange);
     };
   });
 
