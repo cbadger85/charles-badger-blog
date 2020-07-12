@@ -7,8 +7,6 @@ interface ThemeContextState {
   setColorTheme: (theme: ColorTheme) => void;
 }
 
-const colorThemeKey = 'color-mode';
-
 export const colors = {
   '--background-color': {
     light: '#f5f7fa',
@@ -86,7 +84,7 @@ export const colors = {
 };
 
 export const getInitialColorTheme = () => {
-  const userColorPreference = window.localStorage.getItem(colorThemeKey);
+  const userColorPreference = window.localStorage.getItem('color-mode');
 
   if (userColorPreference === 'light' || userColorPreference === 'dark') {
     return userColorPreference;
@@ -101,10 +99,11 @@ export const getInitialColorTheme = () => {
   return 'light';
 };
 
+// Typescript ignored for this function so it can be stringified in the
+// gatsby-ssr file and ran on the client.
 // @ts-ignore
 export const setCssCustomProperties = theme => {
   const root = window.document.documentElement;
-
   Object.keys(colors).forEach(property => {
     // @ts-ignore
     root.style.setProperty(property, colors[property][theme]);
@@ -132,7 +131,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
   const handleSetColorTheme = (theme: ColorTheme) => {
     setColorTheme(theme);
 
-    window.localStorage.setItem(colorThemeKey, theme);
+    window.localStorage.setItem('color-mode', theme);
 
     setCssCustomProperties(theme);
   };
