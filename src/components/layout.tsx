@@ -4,6 +4,7 @@ import Header from './header';
 import styles from './layout.module.scss';
 import debounce from 'lodash/debounce';
 import Footer from './footer';
+import { ThemeProvider } from '../utils/color-theme';
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery<TitleQuery>(graphql`
@@ -37,11 +38,13 @@ const Layout: React.FC = ({ children }) => {
   });
 
   return (
-    <div className={styles.layoutContainer}>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <main className={styles.layout}>{children}</main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className={styles.layoutContainer}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main className={styles.layout}>{children}</main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 

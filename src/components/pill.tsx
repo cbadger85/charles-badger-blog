@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '../elements/typography';
 import styles from './pill.module.scss';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 
 const pillColor: Record<string, string> = {
   React: styles.pillReact,
@@ -18,9 +18,7 @@ const Pill: React.FC<PillProps> = ({ children, className }) => {
         pillColor[children] || styles.pillBlack
       )}
     >
-      <Typography size="xs" bold>
-        {children}
-      </Typography>
+      {children}
     </div>
   );
 };

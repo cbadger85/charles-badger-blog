@@ -3,15 +3,23 @@
   margin: 0 0 1rem 1rem;
 }
 
-// .aboutMe::after {
-//   content: '';
-//   clear: both;
-//   display: table;
-// }
-
 @media (max-width: 570px) {
   .aboutMe {
     float: initial;
     margin: 0 auto 1rem auto;
+  }
+}
+
+.aboutPage {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--tertiary-color);
+  }
+
+  ul {
+    list-style: '\26A1';
   }
 }

@@ -42,8 +42,8 @@ module.exports = {
             options: {
               maxWidth: IMAGE_MAX_WIDTH,
               linkImagesToOriginal: false,
-              withWebp: true,
-              wrapperStyle: fluidReult => `
+              backgroundColor: 'transparent',
+              wrapperStyle: fluidResult => `
                 margin: 3rem auto;
               `,
             },

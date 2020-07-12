@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { FocusOn } from 'react-focus-on';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
+import ColorThemeToggle from './color-theme-toggle';
 import NavList from './nav-list';
 import styles from './nav-menu.module.scss';
 
@@ -76,7 +77,10 @@ const NavMenu = () => {
         aria-labelledby="navigation-menu"
         className={getClasses(styles.navMenu, isOpen && styles.navMenuOpen)}
       >
-        <NavList onClick={handleClose} />
+        <div>
+          <NavList onClick={handleClose} />
+          <ColorThemeToggle />
+        </div>
       </div>
     </FocusOn>
   );

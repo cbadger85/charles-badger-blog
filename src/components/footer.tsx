@@ -14,36 +14,49 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContents}>
-        <Link to="/" className={styles.homepageLink}>
-          <Typography component="p" bold size="s" heading>
-            charlesbadger.dev
-          </Typography>
-        </Link>
+        <span className={styles.homePageLinkContainer}>
+          <Link to="/" className={styles.homepageLink}>
+            <Typography component="p" bold size="s" heading>
+              charlesbadger.dev
+            </Typography>
+          </Link>
+        </span>
         <nav className={styles.footerNav} aria-label="Secondary">
-          <Typography component="span" bold>
+          <Typography component="span" bold className={styles.footerNavText}>
             Navigation
           </Typography>
           <ul className={styles.footerNavList}>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs">Home</Typography>
+                <Typography size="xxs" className={styles.footerNavText}>
+                  Home
+                </Typography>
               </Link>
             </li>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs">Blog</Typography>
+                <Typography size="xxs" className={styles.footerNavText}>
+                  Blog
+                </Typography>
               </Link>
             </li>
             <li className={styles.footerNavListItem}>
               <Link to="/" className={styles.footerNavLink}>
-                <Typography size="xxs">About</Typography>
+                <Typography size="xxs" className={styles.footerNavText}>
+                  About
+                </Typography>
               </Link>
             </li>
           </ul>
         </nav>
         <div className={styles.iconContainer}>
           <section className={styles.icons} aria-labelledby="footer-links">
-            <Typography component="span" bold id="footer-links">
+            <Typography
+              component="span"
+              bold
+              id="footer-links"
+              className={styles.footerNavText}
+            >
               Links
             </Typography>
             <a href="https://www.linkedin.com/in/charles-badger/">

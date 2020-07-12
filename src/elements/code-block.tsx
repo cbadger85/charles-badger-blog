@@ -1,8 +1,8 @@
 import React from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import theme from 'prism-react-renderer/themes/vsDark';
 import styles from './code-block.module.scss';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => {
   const language = className.replace(/language-/, '') as Language;

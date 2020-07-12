@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './nav-list.module.scss';
 import { Link } from 'gatsby';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 import Typography from '../elements/typography';
 
 const NavList: React.FC<NavListProps> = ({ isBar, onClick }) => {
@@ -18,7 +18,12 @@ const NavList: React.FC<NavListProps> = ({ isBar, onClick }) => {
             className={getClasses(styles.navItem, isBar && styles.navItemBar)}
           >
             <Link to="/" onClick={onClick}>
-              <Typography component="span" bold size={isBar ? 's' : 'm'}>
+              <Typography
+                component="span"
+                bold
+                size={isBar ? 's' : 'm'}
+                className={styles.navItemColor}
+              >
                 Home
               </Typography>
             </Link>
@@ -26,14 +31,24 @@ const NavList: React.FC<NavListProps> = ({ isBar, onClick }) => {
         )}
         <li className={getClasses(styles.navItem, isBar && styles.navItemBar)}>
           <Link to="/blog" onClick={onClick}>
-            <Typography component="span" bold size={isBar ? 's' : 'm'}>
+            <Typography
+              component="span"
+              bold
+              size={isBar ? 's' : 'm'}
+              className={styles.navItemColor}
+            >
               Blog
             </Typography>
           </Link>
         </li>
         <li className={getClasses(styles.navItem, isBar && styles.navItemBar)}>
           <Link to="/about" onClick={onClick}>
-            <Typography component="span" bold size={isBar ? 's' : 'm'}>
+            <Typography
+              component="span"
+              bold
+              size={isBar ? 's' : 'm'}
+              className={styles.navItemColor}
+            >
               About
             </Typography>
           </Link>

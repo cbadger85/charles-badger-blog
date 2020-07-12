@@ -15,7 +15,13 @@ const NotFoundPage: React.FC<PageProps<Data>> = ({ data, location }) => {
   return (
     <>
       <SEO title="404 | charlesbadger.dev" />
-      <Typography component="h2" heading size="l" className={styles.title}>
+      <Typography
+        component="h2"
+        heading
+        size="l"
+        className={styles.title}
+        color="primary"
+      >
         Not Found
       </Typography>
       <Typography component="p" size="m">

@@ -1,12 +1,13 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useEffect, useRef, useState } from 'react';
 import Typography from '../elements/typography';
-import { getClasses } from '../utils/getClasses';
+import { getClasses } from '../utils/get-classes';
 import styles from './header.module.scss';
 import throttle from 'lodash/throttle';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import NavList from './nav-list';
 import NavMenu from './nav-menu';
+import ColorThemeToggle from './color-theme-toggle';
 
 // const pluckTags = (posts: MdxEdges[]): string[] =>
 //   Array.from(new Set(posts.flatMap(post => post.node.fields.tags)));
@@ -59,11 +60,14 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }) => {
         className={getClasses(styles.header, isFaded && styles.headerScroll)}
       >
         <Link to="/" className={styles.headerTitle}>
-          <Typography component="span" heading size="m">
+          <Typography component="span" heading size="m" color="primary">
             &lt;{siteTitle} /&gt;
           </Typography>
         </Link>
-        {isPhone ? <NavMenu /> : <NavList isBar />}
+        <div className={styles.themeToggleAndNav}>
+          {!isPhone && <ColorThemeToggle />}
+          {isPhone ? <NavMenu /> : <NavList isBar />}
+        </div>
       </div>
     </header>
   );

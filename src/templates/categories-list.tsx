@@ -20,7 +20,13 @@ const CategoryListPage: React.FC<CategoryListPageProps> = ({
         prevPageLink={prevPageLink}
       >
         <div>
-          <Typography component="h1" heading size="l" transform="capitalize">
+          <Typography
+            component="h1"
+            heading
+            size="l"
+            transform="capitalize"
+            color="secondary-light"
+          >
             {pathContext.category} Articles
           </Typography>
           {posts.map(({ node }) => (

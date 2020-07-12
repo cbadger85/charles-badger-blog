@@ -3,7 +3,6 @@
 }
 
 .articleLink {
-  color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
   transition: transform 0.1s ease-in-out;
 
@@ -16,7 +15,6 @@
 .articleItem {
   margin: 1rem 0;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.8);
   transition: transform 0.1s ease-in-out;
 
   &:first-child {
@@ -27,7 +25,6 @@
 .articleItem:hover {
   transform: scale(1.008);
   transition: transform 0.1s ease-in-out;
-  border-color: rgba(0, 0, 0, 1);
 
   .arrowRight {
     opacity: 1;
@@ -54,7 +51,7 @@
 }
 
 .readMoreLink {
-  color: grey;
+  color: var(--nav-link-color);
   transition: transform 0.1s ease-in-out;
   display: flex;
   align-items: center;
@@ -62,7 +59,7 @@
   &:hover {
     transition: transform 0.1s ease-in-out;
     transform: scale(1.05);
-    color: black;
+    color: var(--nav-link-color-hover);
   }
 }
 

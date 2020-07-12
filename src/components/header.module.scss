@@ -5,13 +5,14 @@
   left: 0;
   right: 0;
   z-index: 1;
-  transition: box-shadow 0.2s ease-in-out;
-  background-color: white;
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(var(--header-background-color), 0);
 }
 
 .headerWrapperScroll {
   @include shadow-4;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(var(--header-background-color), 1);
 }
 
 .header {
@@ -35,4 +36,9 @@
 
 .headerTitle {
   text-decoration: none;
+}
+
+.themeToggleAndNav {
+  display: flex;
+  align-items: center;
 }

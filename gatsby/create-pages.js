@@ -67,7 +67,7 @@ exports.createCategoriesListPages = (createPage, posts) => {
   Object.entries(groupPostsByCategory(posts)).forEach(
     ([category, categoryPosts]) => {
       const numPages = Math.ceil(categoryPosts.length / POSTS_PER_PAGE);
-      const categorySlug = slugify(category);
+      const categorySlug = slugify(category.toLowerCase());
       const uri = `/blog/categories/${categorySlug}`;
 
       categoryPosts.forEach((_, i) => {
