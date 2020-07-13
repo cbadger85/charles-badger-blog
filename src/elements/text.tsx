@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './text.module.scss';
 import Typography from './typography';
 
 export const Paragraph: React.FC = props => (
-  <Typography component="p" {...props} />
+  <Typography component="p" {...props} className={styles.paragraph} />
 );
 
 export const Italic: React.FC = props => (
