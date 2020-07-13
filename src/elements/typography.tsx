@@ -92,4 +92,6 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   bottomSpacing?: keyof typeof spacingToClassMap;
 }
 
+// & JSX.IntrinsicElements[T] & React.Ref<T>;
+
 export default Typography;

@@ -4,6 +4,7 @@ import React from 'react';
 import PaginationLinks from '../components/pagination-links';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
+import styles from './blog-post.module.scss';
 
 const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
   const { title, date } = data.mdx.frontmatter;
@@ -35,6 +36,19 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
           prevPageText={prevPostTitle}
         />
       </article>
+      <div className={styles.submitErrorLink}>
+        <Typography component="p">
+          Find something wrong with this article? Make a pull request{' '}
+          <a
+            href={`https://github.com/cbadger85/charles-badger-blog-content/blob/master/blog${data.mdx.fields.slug}index.mdx`}
+          >
+            <Typography link component="span">
+              here
+            </Typography>
+          </a>{' '}
+          to submit your changes!
+        </Typography>
+      </div>
     </>
   );
 };
@@ -46,6 +60,9 @@ export const postQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       body
       excerpt(pruneLength: 250)
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -60,6 +77,9 @@ interface BlogPostPageProps extends PageProps {
     mdx: {
       body: string;
       excerpt: string;
+      fields: {
+        slug: string;
+      };
       frontmatter: {
         title: string;
         date: string;
