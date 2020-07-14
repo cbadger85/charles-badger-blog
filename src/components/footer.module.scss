@@ -90,7 +90,7 @@
 
 .icon {
   margin-bottom: 0.3rem;
-  color: white;
+  color: var(--footer-text-color);
 }
 
 @media (max-width: 570px) {
@@ -113,9 +113,7 @@
 
   .copyright {
     margin-top: 1.5rem;
-  }
-
-  .copyright {
     justify-content: center;
+    color: var(--footer-text-color);
   }
 }
