@@ -152,12 +152,10 @@ module.exports = {
               }
             }
             allSitePage {
-              edges {
-                node {
-                  path
-                  context {
-                    canonical
-                  }
+              nodes {
+                path
+                context {
+                  canonical
                 }
               }
             }

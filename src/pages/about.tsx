@@ -1,9 +1,9 @@
-import React from 'react';
-import SEO from '../components/seo';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Typography from '../elements/typography';
+import React from 'react';
 import CartoonMe from '../components/cartoon-me';
+import SEO from '../components/seo';
+import Typography from '../elements/typography';
 import styles from './about.module.scss';
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
