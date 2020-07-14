@@ -32,7 +32,7 @@ const SEO: React.FC<SEOProps> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const image = imageSharp.childImageSharp.original.src;
+  const image = `${site.siteMetadata.siteUrl}${imageSharp.childImageSharp.original.src}`;
 
   const canonicalLink = canonical
     ? [
