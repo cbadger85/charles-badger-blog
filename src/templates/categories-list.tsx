@@ -14,7 +14,10 @@ const CategoryListPage: React.FC<CategoryListPageProps> = ({
 
   return (
     <>
-      <SEO title={`${pathContext.category} | charlesbadger.dev`} />
+      <SEO
+        title={`${pathContext.category} | charlesbadger.dev`}
+        canonical={`https://wwww.charlesbadger.dev/blog/catagories/${pathContext.categorySlug}/${pathContext.currentPage}`}
+      />
       <ArticleListLayout
         nextPageLink={nextPageLink}
         prevPageLink={prevPageLink}

@@ -1,15 +1,19 @@
-import React from 'react';
-import SEO from '../components/seo';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Typography from '../elements/typography';
+import React from 'react';
 import CartoonMe from '../components/cartoon-me';
+import SEO from '../components/seo';
+import Typography from '../elements/typography';
 import styles from './about.module.scss';
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
     <div className={styles.aboutPage}>
-      <SEO title="About" description={data.mdx.excerpt} />
+      <SEO
+        title="About"
+        description={data.mdx.excerpt}
+        canonical="https://wwww.charlesbadger.dev/about"
+      />
       <Typography component="h1" heading size="xl" color="secondary">
         {data.mdx.frontmatter.title}
       </Typography>

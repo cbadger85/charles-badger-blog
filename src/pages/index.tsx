@@ -21,7 +21,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Home" canonical="https://wwww.charlesbadger.dev" />
       <div className={styles.content}>
         <main>
           <Typography component="h1" heading size="l" color="secondary-light">
