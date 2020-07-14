@@ -5,6 +5,7 @@ import PaginationLinks from '../components/pagination-links';
 import SEO from '../components/seo';
 import Typography from '../elements/typography';
 import styles from './blog-post.module.scss';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
   const { title, date } = data.mdx.frontmatter;
@@ -43,13 +44,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
       <div className={styles.submitErrorLink}>
         <Typography component="p">
           Find something wrong with this article? Make a pull request{' '}
-          <a
+          <OutboundLink
             href={`https://github.com/cbadger85/charles-badger-blog-content/blob/master/blog${data.mdx.fields.slug}index.mdx`}
           >
             <Typography link component="span">
               here
             </Typography>
-          </a>{' '}
+          </OutboundLink>{' '}
           to submit your changes!
         </Typography>
       </div>

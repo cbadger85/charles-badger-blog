@@ -176,5 +176,13 @@ module.exports = {
             }),
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-172669991-1',
+        head: false,
+        respectDNT: true,
+      },
+    },
   ],
 };
