@@ -18,7 +18,11 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
 
   return (
     <>
-      <SEO title={`${title}`} description={data.mdx.excerpt} />
+      <SEO
+        title={`${title}`}
+        description={data.mdx.excerpt}
+        canonical={`https://wwww.charlesbadger.dev/blog/posts${data.mdx.fields.slug}`}
+      />
       <article>
         <Typography component="h1" heading size="xl" color="secondary-light">
           {title}

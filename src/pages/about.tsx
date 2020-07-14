@@ -9,7 +9,11 @@ import styles from './about.module.scss';
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
     <div className={styles.aboutPage}>
-      <SEO title="About" description={data.mdx.excerpt} />
+      <SEO
+        title="About"
+        description={data.mdx.excerpt}
+        canonical="https://wwww.charlesbadger.dev/about"
+      />
       <Typography component="h1" heading size="xl" color="secondary">
         {data.mdx.frontmatter.title}
       </Typography>

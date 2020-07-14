@@ -14,6 +14,7 @@ const SEO: React.FC<SEOProps> = ({
   lang = 'en',
   meta = [],
   title,
+  canonical,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -30,6 +31,15 @@ const SEO: React.FC<SEOProps> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+
+  const canonicalLink = canonical
+    ? [
+        {
+          rel: 'canonical',
+          href: typeof canonical === 'string' ? canonical : undefined,
+        },
+      ]
+    : [];
 
   return (
     <Helmet
@@ -85,6 +95,7 @@ const SEO: React.FC<SEOProps> = ({
             'https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=fallback',
           rel: 'stylesheet',
         },
+        ...canonicalLink,
       ]}
     />
   );
@@ -95,6 +106,7 @@ interface SEOProps {
   description?: string;
   title: string;
   meta?: { name: string; content: string }[];
+  canonical?: boolean | string;
 }
 
 export default SEO;

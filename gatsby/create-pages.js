@@ -42,6 +42,7 @@ exports.createBlogList = (createPage, posts) => {
       currentPage: 1,
       nextPageLink: numPages <= 1 ? null : `${uri}/2`,
       prevPageLink: null,
+      canonical: false,
     },
   });
 

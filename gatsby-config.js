@@ -141,5 +141,42 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path
+                  context {
+                    canonical
+                  }
+                }
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: ({ site }) => {
+          return site.siteMetadata.siteUrl;
+        },
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes
+            .filter(node => node.context.canonical !== false)
+            .map(node => {
+              return {
+                url: `${site.siteMetadata.siteUrl}${node.path}`,
+                changefreq: `daily`,
+                priority: 0.7,
+              };
+            }),
+      },
+    },
   ],
 };
