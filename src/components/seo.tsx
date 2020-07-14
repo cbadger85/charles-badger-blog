@@ -9,15 +9,22 @@ const SEO: React.FC<SEOProps> = ({
   title,
   canonical,
 }) => {
-  const { site } = useStaticQuery(
+  const { site, imageSharp } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
+            siteUrl
             title
             description
             author
-            image
+          }
+        }
+        imageSharp: file(relativePath: { eq: "og-image.png" }) {
+          childImageSharp {
+            original {
+              src
+            }
           }
         }
       }
@@ -25,6 +32,7 @@ const SEO: React.FC<SEOProps> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const image = imageSharp.childImageSharp.original.src;
 
   const canonicalLink = canonical
     ? [
@@ -50,7 +58,7 @@ const SEO: React.FC<SEOProps> = ({
         },
         {
           name: 'image',
-          content: site.siteMetadata.image,
+          content: image,
         },
         {
           property: `og:title`,
@@ -66,7 +74,7 @@ const SEO: React.FC<SEOProps> = ({
         },
         {
           name: 'og:image',
-          content: site.siteMetadata.image,
+          content: image,
         },
         {
           name: `twitter:card`,
@@ -86,7 +94,7 @@ const SEO: React.FC<SEOProps> = ({
         },
         {
           name: 'twitter:image',
-          content: site.siteMetadata.image,
+          content: image,
         },
         ...meta,
       ]}
