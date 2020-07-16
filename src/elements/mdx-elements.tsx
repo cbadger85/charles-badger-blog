@@ -1,17 +1,18 @@
 import React from 'react';
-import CodeBlock from './code-block';
-import {
-  HeadingOne,
-  HeadingTwo,
-  HeadingThree,
-  HeadingFour,
-  HeadingFive,
-  HeadingSix,
-} from './heading';
-import { Paragraph, Bold, Italic, AnchorTag } from './text';
-import Image from './image';
 import BlockQuote from './block-quote';
-import { UnorderedList, OrderedList, ListItem } from './list-elements';
+import CodeBlock from './code-block';
+import CodePen from './codepen';
+import {
+  HeadingFive,
+  HeadingFour,
+  HeadingOne,
+  HeadingSix,
+  HeadingThree,
+  HeadingTwo,
+} from './heading';
+import Image from './image';
+import { ListItem, OrderedList, UnorderedList } from './list-elements';
+import { AnchorTag, Bold, Italic, Paragraph } from './text';
 
 const preToCodeBlock: React.FC<PreToCodBlockProps> = preProps => {
   if (preProps.children?.props?.mdxType === 'code') {
@@ -38,6 +39,7 @@ export const components = {
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
+  CodePen,
 };
 
 interface PreToCodBlockProps {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './footer.module.scss';
 import { Link } from 'gatsby';
-import Typography from '../elements/typography';
+import Typography from './typography';
 import { Linkedin, Rss, GitHub } from 'react-feather';
 import { getClasses } from '../utils/get-classes';
 import { useMediaQuery } from '../hooks/useMediaQuery';

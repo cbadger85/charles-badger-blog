@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '../elements/typography';
+import Typography from './typography';
 import styles from './pill.module.scss';
 import { getClasses } from '../utils/get-classes';
 

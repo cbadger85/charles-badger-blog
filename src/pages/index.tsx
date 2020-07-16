@@ -4,7 +4,7 @@ import ArticleListItem from '../components/article-list-item';
 import CategoryLinks from '../components/category-links';
 import Pill from '../components/pill';
 import SEO from '../components/seo';
-import Typography from '../elements/typography';
+import Typography from '../components/typography';
 import styles from './index.module.scss';
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {

@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import PaginationLinks from '../components/pagination-links';
 import SEO from '../components/seo';
-import Typography from '../elements/typography';
+import Typography from '../components/typography';
 import styles from './blog-post.module.scss';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
@@ -34,12 +34,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
           </Typography>
         </div>
         <MDXRenderer>{body}</MDXRenderer>
-        <PaginationLinks
-          nextPageLink={nextPostLink}
-          nextPageText={nextPostTitle}
-          prevPageLink={prevPostLink}
-          prevPageText={prevPostTitle}
-        />
       </article>
       <div className={styles.submitErrorLink}>
         <Typography component="p">
@@ -54,6 +48,12 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data, pathContext }) => {
           to submit your changes!
         </Typography>
       </div>
+      <PaginationLinks
+        nextPageLink={nextPostLink}
+        nextPageText={nextPostTitle}
+        prevPageLink={prevPostLink}
+        prevPageText={prevPostTitle}
+      />
     </>
   );
 };

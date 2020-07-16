@@ -3,7 +3,7 @@ import React from 'react';
 import ArticleListItem from '../components/article-list-item';
 import ArticleListLayout from '../components/article-list-layout';
 import SEO from '../components/seo';
-import Typography from '../elements/typography';
+import Typography from '../components/typography';
 
 const BlogListPage: React.FC<BlogListPageProps> = ({ data, pathContext }) => {
   const posts = data.allMdx.edges;

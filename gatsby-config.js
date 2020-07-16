@@ -1,5 +1,13 @@
 const { IMAGE_MAX_WIDTH } = require('./gatsby/constants');
 
+const developmentContent = {
+  resolve: 'gatsby-source-filesystem',
+  options: {
+    name: 'devContent',
+    path: `${__dirname}/devcontent`,
+  },
+};
+
 module.exports = {
   siteMetadata: {
     title: 'charlesbadger.dev',
@@ -8,6 +16,7 @@ module.exports = {
     author: 'Charles Badger',
   },
   plugins: [
+    ...(process.env.NODE_ENV === 'production' ? [] : [developmentContent]),
     {
       resolve: 'gatsby-source-filesystem',
       options: {

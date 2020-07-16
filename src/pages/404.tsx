@@ -2,7 +2,7 @@ import React from 'react';
 import SEO from '../components/seo';
 import { graphql, PageProps, Link } from 'gatsby';
 import { findBestMatch } from 'string-similarity';
-import Typography from '../elements/typography';
+import Typography from '../components/typography';
 import styles from './404.module.scss';
 
 const NotFoundPage: React.FC<PageProps<Data>> = ({ data, location }) => {
