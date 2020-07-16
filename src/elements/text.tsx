@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './text.module.scss';
-import Typography from './typography';
+import Typography from '../components/typography';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 export const Paragraph: React.FC = props => (

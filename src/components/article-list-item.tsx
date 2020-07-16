@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styles from './article-list-item.module.scss';
-import Typography from '../elements/typography';
+import Typography from './typography';
 import slugify from 'slugify';
 import Pill from './pill';
 import { navigate } from 'gatsby';

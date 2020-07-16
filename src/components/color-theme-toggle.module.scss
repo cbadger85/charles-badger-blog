@@ -18,11 +18,6 @@
     transition: all 0.3s;
   }
 
-  & input[type='checkbox']:checked:focus + .toggle {
-    outline: auto;
-    outline-color: blue;
-  }
-
   & input[type='checkbox']:focus + .toggle {
     outline: auto;
     outline-color: blue;
@@ -68,17 +63,5 @@
     top: 0.05rem;
     left: 0.05rem;
     transition: all 0.3s;
-  }
-}
-
-.toggleLabel {
-  color: var(--nav-link-color);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin-right: 1rem;
-
-  &:hover {
-    color: var(--nav-link-color-hover);
   }
 }

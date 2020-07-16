@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import CartoonMe from '../components/cartoon-me';
 import SEO from '../components/seo';
-import Typography from '../elements/typography';
+import Typography from '../components/typography';
 import styles from './about.module.scss';
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {

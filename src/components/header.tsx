@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useEffect, useRef, useState } from 'react';
-import Typography from '../elements/typography';
+import Typography from './typography';
 import { getClasses } from '../utils/get-classes';
 import styles from './header.module.scss';
 import throttle from 'lodash/throttle';
